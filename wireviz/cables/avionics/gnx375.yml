@@ -1,0 +1,94 @@
+description: |
+  Garmin GNX 375: IFR GPS, ADS-B Out, and Mode S Transponder.
+  This file documents the wiring connections for power, ground, ARINC 429, RS232, and antenna interfaces.
+  Refer to the official Garmin installation manual for pinout verification and additional details:
+  https://support.garmin.com/en-US/?partNumber=010-02357-00&tab=manuals
+
+connectors:
+  GNX375_P1001:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: ARINC429_TXA
+      4: ARINC429_TXB
+      5: ARINC429_RXA
+      6: ARINC429_RXB
+      7: RS232_TX
+      8: RS232_RX
+      9: XPDR_ANT
+      10: GPS_ANT
+      # ...add more as needed per manual
+
+cables:
+  - name: GNX375_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GNX375_P1001
+        pin: 1
+        label: "+12VDC"
+      - connector: GNX375_P1001
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: GNX375_ARINC429
+    wirecount: 4
+    gauge: 22AWG
+    color: [blue, white, blue, white]
+    type: Shielded
+    ends:
+      - connector: GNX375_P1001
+        pin: 3
+        label: "ARINC429_TXA"
+      - connector: GNX375_P1001
+        pin: 4
+        label: "ARINC429_TXB"
+      - connector: GNX375_P1001
+        pin: 5
+        label: "ARINC429_RXA"
+      - connector: GNX375_P1001
+        pin: 6
+        label: "ARINC429_RXB"
+      # Connect to GAD29 or other ARINC device
+
+  - name: GNX375_RS232
+    wirecount: 2
+    gauge: 22AWG
+    color: [yellow, green]
+    type: Tefzel
+    ends:
+      - connector: GNX375_P1001
+        pin: 7
+        label: "RS232_TX"
+      - connector: GNX375_P1001
+        pin: 8
+        label: "RS232_RX"
+      # Connect to G3X or other serial device
+
+  - name: GNX375_Transponder_Antenna
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GNX375_P1001
+        pin: 9
+        label: "XPDR_ANT"
+      # Connect to XPDR antenna
+
+  - name: GNX375_GPS_Antenna
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GNX375_P1001
+        pin: 10
+        label: "GPS_ANT"
+      # Connect to GA 35 antenna
+
+# Add additional cables for audio, discrete inputs/outputs, and other functions as needed.

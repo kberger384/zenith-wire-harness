@@ -1,0 +1,39 @@
+description: |
+  Garmin GA 35 Antenna: GPS/WAAS antenna for use with GNX 375 and other compatible Garmin avionics.
+  This file documents the wiring for the coaxial cable connection between the GNX 375 and the GA 35 antenna.
+  Refer to the Garmin GA 35 installation manual for mounting and wiring details:
+  https://static.garmincdn.com/pumac/190-00688-10_0A.pdf
+
+connectors:
+  GA35_ANTENNA:
+    type: TNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+  GNX375_GPS_ANT_PORT:
+    type: TNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+cables:
+  - name: GA35_Antenna_Coax
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GNX375_GPS_ANT_PORT
+        pin: 1
+        label: "CENTER"
+      - connector: GNX375_GPS_ANT_PORT
+        pin: 2
+        label: "SHIELD"
+      - connector: GA35_ANTENNA
+        pin: 1
+        label: "CENTER"
+      - connector: GA35_ANTENNA
+        pin: 2
+        label: "SHIELD"
+      # Route RG400 coax from GNX 375 to GA 35 antenna, minimizing bends and avoiding sharp edges

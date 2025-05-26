@@ -1,0 +1,55 @@
+description: |
+  Ray Allen T2-7A: Elevator electric trim servo.
+  This file documents the wiring for power, ground, and trim control connections.
+  Refer to the Ray Allen T2-7A documentation for full pinout and installation details:
+  https://www.rayallencompany.com/products/t2-trim-tab-servo/
+
+connectors:
+  T2_7A_J1:
+    type: 5-pin
+    pins:
+      1: +12VDC
+      2: GND
+      3: TRIM_UP
+      4: TRIM_DOWN
+      5: POSITION_FEEDBACK
+
+cables:
+  - name: T2_7A_Power
+    wirecount: 2
+    gauge: 22AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: T2_7A_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: T2_7A_J1
+        pin: 2
+        label: "GND"
+      # Connect to trim servo power and ground
+
+  - name: T2_7A_Control
+    wirecount: 2
+    gauge: 22AWG
+    color: [green, yellow]
+    type: Tefzel
+    ends:
+      - connector: T2_7A_J1
+        pin: 3
+        label: "TRIM_UP"
+      - connector: T2_7A_J1
+        pin: 4
+        label: "TRIM_DOWN"
+      # Connect to trim switch or controller
+
+  - name: T2_7A_Feedback
+    wirecount: 1
+    gauge: 24AWG
+    color: [white]
+    type: Tefzel
+    ends:
+      - connector: T2_7A_J1
+        pin: 5
+        label: "POSITION_FEEDBACK"
+      # Connect to trim position indicator or EFIS input

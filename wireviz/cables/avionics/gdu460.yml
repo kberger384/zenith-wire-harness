@@ -1,0 +1,54 @@
+description: |
+  Garmin GDU 460: 10.6” G3X Touch Primary Flight Display.
+  This file documents the wiring for power, ground, and CAN bus connections.
+  Refer to the Garmin G3X installation manual for full pinout and installation details:
+  https://static.garmincdn.com/pumac/190-01115-01_AJ.pdf
+
+connectors:
+  GDU460_J1:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: CAN_H
+      4: CAN_L
+      # ...other pins
+
+cables:
+  - name: GDU460_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GDU460_J1
+        pin: 1
+        label: +12VDC
+      - connector: GDU460_J1
+        pin: 2
+        label: GND
+      - connector: PWR_DIST
+        pin: 5
+        label: +12VDC
+      - connector: GND_BLOCK
+        pin: 1
+        label: GND
+
+  - name: GDU460_CAN
+    wirecount: 2
+    gauge: 22AWG
+    color: [white, blue]
+    type: Shielded
+    ends:
+      - connector: GDU460_J1
+        pin: 3
+        label: CAN_H
+      - connector: GDU460_J1
+        pin: 4
+        label: CAN_L
+      - connector: CAN_BUS
+        pin: 1
+        label: CAN_H
+      - connector: CAN_BUS
+        pin: 2
+        label: CAN_L

@@ -1,0 +1,107 @@
+description: |
+  AeroLEDs Nav/Strobe Lights: Integrated LED navigation (red, green, white) and strobe lights for wing tips and tail.
+  This file documents the wiring for power, ground, control (switch or relay), and synchronization for the combined position and strobe lights.
+  Refer to the AeroLEDs Nav/Strobe installation manual for wiring details and current requirements:
+  https://aeroleds.com/wp-content/uploads/2023/02/Nav-Strobe-Light-Install-Guide.pdf
+
+connectors:
+  NAV_STROBE_LH:
+    type: 3-pin
+    pins:
+      1: +12VDC
+      2: GND
+      3: SYNC
+
+  NAV_STROBE_RH:
+    type: 3-pin
+    pins:
+      1: +12VDC
+      2: GND
+      3: SYNC
+
+  NAV_STROBE_TAIL:
+    type: 3-pin
+    pins:
+      1: +12VDC
+      2: GND
+      3: SYNC
+
+  NAV_STROBE_SWITCH:
+    type: SPST Switch
+    pins:
+      1: +12VDC_IN
+      2: LOAD_OUT
+
+cables:
+  - name: Nav_Strobe_Power_LH
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: NAV_STROBE_LH
+        pin: 1
+        label: "+12VDC"
+      - connector: NAV_STROBE_LH
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: Nav_Strobe_Power_RH
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: NAV_STROBE_RH
+        pin: 1
+        label: "+12VDC"
+      - connector: NAV_STROBE_RH
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: Nav_Strobe_Power_Tail
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: NAV_STROBE_TAIL
+        pin: 1
+        label: "+12VDC"
+      - connector: NAV_STROBE_TAIL
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: Nav_Strobe_Sync
+    wirecount: 3
+    gauge: 22AWG
+    color: [white, white, white]
+    type: Tefzel
+    ends:
+      - connector: NAV_STROBE_LH
+        pin: 3
+        label: "SYNC"
+      - connector: NAV_STROBE_RH
+        pin: 3
+        label: "SYNC"
+      - connector: NAV_STROBE_TAIL
+        pin: 3
+        label: "SYNC"
+      # Connect all SYNC pins together for synchronized strobe flashing
+
+  - name: Nav_Strobe_Switch
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, red]
+    type: Tefzel
+    ends:
+      - connector: NAV_STROBE_SWITCH
+        pin: 1
+        label: "+12VDC_IN"
+      - connector: NAV_STROBE_SWITCH
+        pin: 2
+        label: "LOAD_OUT"
+      # Connect to panel power and nav/strobe lights +12VDC

@@ -1,0 +1,68 @@
+description: |
+  Garmin GMC 507: Autopilot Control Head.
+  This file documents the wiring for power, ground, CAN bus, and control connections.
+  Refer to the Garmin GMC 507 installation manual for full pinout and installation details:
+  https://support.garmin.com/en-US/?partNumber=010-01230-00&tab=manuals
+
+connectors:
+  GMC507_J1:
+    type: DB15
+    pins:
+      1: +12VDC
+      2: GND
+      3: CAN_H
+      4: CAN_L
+      5: AP_DISC
+      6: TRIM_INT
+      # ...add more as needed
+
+cables:
+  - name: GMC507_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GMC507_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: GMC507_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: GMC507_CAN
+    wirecount: 2
+    gauge: 22AWG
+    color: [white, blue]
+    type: Shielded
+    ends:
+      - connector: GMC507_J1
+        pin: 3
+        label: "CAN_H"
+      - connector: GMC507_J1
+        pin: 4
+        label: "CAN_L"
+      # Connect to CAN bus
+
+  - name: GMC507_AP_DISC
+    wirecount: 1
+    gauge: 22AWG
+    color: [yellow]
+    type: Tefzel
+    ends:
+      - connector: GMC507_J1
+        pin: 5
+        label: "AP_DISC"
+      # Connect to autopilot disconnect switch
+
+  - name: GMC507_Trim_Int
+    wirecount: 1
+    gauge: 22AWG
+    color: [green]
+    type: Tefzel
+    ends:
+      - connector: GMC507_J1
+        pin: 6
+        label: "TRIM_INT"
+      # Connect to trim interrupt switch

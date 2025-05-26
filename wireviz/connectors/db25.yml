@@ -1,0 +1,14 @@
+description: |
+  DB25 connector: 25-pin D-subminiature connector commonly used for avionics and data connections.
+  Pin numbering follows standard DB25 conventions.
+  Reference: https://en.wikipedia.org/wiki/D-subminiature#DB25_connector
+
+connectors:
+  DB25:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: CAN_H
+      4: CAN_L
+      # ...other pins as needed

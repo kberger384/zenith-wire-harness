@@ -1,0 +1,49 @@
+description: |
+  AeroLEDs Landing Light: High-intensity LED landing light for forward illumination during takeoff and landing.
+  This file documents the wiring for power, ground, control (switch or relay), and optional wigwag module.
+  Refer to the AeroLEDs landing light installation manual for wiring details and current requirements:
+  https://aeroleds.com/wp-content/uploads/2023/02/Landing-Taxi-Light-Install-Guide.pdf
+
+connectors:
+  LANDING_LIGHT_J1:
+    type: 2-pin
+    pins:
+      1: +12VDC
+      2: GND
+
+  LANDING_LIGHT_SWITCH:
+    type: SPST Switch
+    pins:
+      1: +12VDC_IN
+      2: LOAD_OUT
+
+cables:
+  - name: Landing_Light_Power
+    wirecount: 2
+    gauge: 16AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: LANDING_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: LANDING_LIGHT_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: Landing_Light_Switch
+    wirecount: 2
+    gauge: 18AWG
+    color: [red, red]
+    type: Tefzel
+    ends:
+      - connector: LANDING_LIGHT_SWITCH
+        pin: 1
+        label: "+12VDC_IN"
+      - connector: LANDING_LIGHT_SWITCH
+        pin: 2
+        label: "LOAD_OUT"
+      # Connect to panel power and landing light +12VDC
+
+  # Add additional cables for wigwag or pulse module if installed

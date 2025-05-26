@@ -1,0 +1,84 @@
+description: |
+  Garmin GMA 245: Audio Panel with Bluetooth.
+  This file documents the wiring for power, ground, audio inputs/outputs, and intercom connections.
+  Refer to the Garmin GMA 245 installation manual for full pinout and installation details:
+  https://support.garmin.com/en-US/?partNumber=010-01290-00&tab=manuals
+
+connectors:
+  GMA245_J1:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: AUDIO_IN_L
+      4: AUDIO_IN_R
+      5: AUDIO_OUT_L
+      6: AUDIO_OUT_R
+      7: PTT
+      8: MIC
+      # ...add more as needed
+
+cables:
+  - name: GMA245_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GMA245_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: GMA245_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: GMA245_Audio_In
+    wirecount: 2
+    gauge: 22AWG
+    color: [white, white]
+    type: Shielded
+    ends:
+      - connector: GMA245_J1
+        pin: 3
+        label: "AUDIO_IN_L"
+      - connector: GMA245_J1
+        pin: 4
+        label: "AUDIO_IN_R"
+      # Connect to audio source (e.g., radio, music input)
+
+  - name: GMA245_Audio_Out
+    wirecount: 2
+    gauge: 22AWG
+    color: [blue, blue]
+    type: Shielded
+    ends:
+      - connector: GMA245_J1
+        pin: 5
+        label: "AUDIO_OUT_L"
+      - connector: GMA245_J1
+        pin: 6
+        label: "AUDIO_OUT_R"
+      # Connect to headset jacks or intercom
+
+  - name: GMA245_PTT
+    wirecount: 1
+    gauge: 22AWG
+    color: [yellow]
+    type: Tefzel
+    ends:
+      - connector: GMA245_J1
+        pin: 7
+        label: "PTT"
+      # Connect to yoke or stick switch
+
+  - name: GMA245_MIC
+    wirecount: 1
+    gauge: 22AWG
+    color: [green]
+    type: Tefzel
+    ends:
+      - connector: GMA245_J1
+        pin: 8
+        label: "MIC"
+      # Connect to microphone jack

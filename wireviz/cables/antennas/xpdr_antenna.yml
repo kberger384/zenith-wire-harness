@@ -1,0 +1,39 @@
+description: |
+  XPDR Antenna: Transponder antenna for use with the GNX 375 or other compatible transponders.
+  This file documents the wiring for the coaxial cable connection between the transponder and the antenna.
+  Refer to the transponder antenna installation manual for mounting and wiring details:
+  https://www.aircraftspruce.com/catalog/pdf/transponderantenna.pdf
+
+connectors:
+  XPDR_ANTENNA:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+  GNX375_XPDR_ANT_PORT:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+cables:
+  - name: XPDR_Antenna_Coax
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GNX375_XPDR_ANT_PORT
+        pin: 1
+        label: "CENTER"
+      - connector: GNX375_XPDR_ANT_PORT
+        pin: 2
+        label: "SHIELD"
+      - connector: XPDR_ANTENNA
+        pin: 1
+        label: "CENTER"
+      - connector: XPDR_ANTENNA
+        pin: 2
+        label: "SHIELD"
+      # Route RG400 coax from GNX 375 to XPDR antenna, minimizing bends and avoiding sharp edges

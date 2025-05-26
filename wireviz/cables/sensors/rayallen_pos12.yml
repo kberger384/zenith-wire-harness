@@ -1,0 +1,39 @@
+description: |
+  Ray Allen POS-12: Trim position sensor.
+  This file documents the wiring for power, ground, and position signal connections.
+  Refer to the Ray Allen POS-12 documentation for full pinout and installation details:
+  https://www.rayallencompany.com/products/pos-12-indicator-sensor/
+
+connectors:
+  POS12_J1:
+    type: 3-pin
+    pins:
+      1: +5VDC
+      2: GND
+      3: POSITION_SIGNAL
+
+cables:
+  - name: POS12_Power
+    wirecount: 2
+    gauge: 24AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: POS12_J1
+        pin: 1
+        label: "+5VDC"
+      - connector: POS12_J1
+        pin: 2
+        label: "GND"
+      # Connect to trim position sensor power and ground
+
+  - name: POS12_Signal
+    wirecount: 1
+    gauge: 24AWG
+    color: [white]
+    type: Tefzel
+    ends:
+      - connector: POS12_J1
+        pin: 3
+        label: "POSITION_SIGNAL"
+      # Connect to trim position indicator or EFIS input

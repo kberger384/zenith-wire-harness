@@ -1,0 +1,25 @@
+description: |
+  Deutsch connector: Rugged, environmentally sealed connectors commonly used in aviation and automotive applications.
+  Pin numbering and layout depend on the specific Deutsch series and shell size.
+  Reference: https://www.te.com/usa-en/products/connectors/circular-connectors/deutsch-connectors.html
+
+connectors:
+  DEUTSCH_4PIN:
+    type: Deutsch DT 4-pin
+    pins:
+      1: PIN_1
+      2: PIN_2
+      3: PIN_3
+      4: PIN_4
+
+  DEUTSCH_6PIN:
+    type: Deutsch DT 6-pin
+    pins:
+      1: PIN_1
+      2: PIN_2
+      3: PIN_3
+      4: PIN_4
+      5: PIN_5
+      6: PIN_6
+
+  # Add more Deutsch connector variants as needed

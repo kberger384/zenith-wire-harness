@@ -1,0 +1,11 @@
+labels:
+  power: "+12VDC"
+  ground: "GND"
+  can_high: "CAN_H"
+  can_low: "CAN_L"
+  audio_l: "AUDIO_L"
+  audio_r: "AUDIO_R"
+  ptt: "PTT"
+  # ...add more as needed
+
+  

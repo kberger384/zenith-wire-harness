@@ -1,0 +1,71 @@
+description: |
+  AeroLEDs Taxi Light: High-intensity LED taxi light for ground maneuvering, with optional wigwag (alternating flash) functionality.
+  This file documents the wiring for power, ground, control (switch or relay), and wigwag module integration.
+  Refer to the AeroLEDs landing/taxi light installation manual for wiring details and current requirements:
+  https://aeroleds.com/wp-content/uploads/2023/02/Landing-Taxi-Light-Install-Guide.pdf
+
+connectors:
+  TAXI_LIGHT_J1:
+    type: 2-pin
+    pins:
+      1: +12VDC
+      2: GND
+
+  TAXI_LIGHT_SWITCH:
+    type: SPST Switch
+    pins:
+      1: +12VDC_IN
+      2: LOAD_OUT
+
+  WIGWAG_MODULE:
+    type: 3-pin
+    pins:
+      1: LANDING_LIGHT_OUT
+      2: TAXI_LIGHT_OUT
+      3: +12VDC_IN
+
+cables:
+  - name: Taxi_Light_Power
+    wirecount: 2
+    gauge: 16AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: TAXI_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: TAXI_LIGHT_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: Taxi_Light_Switch
+    wirecount: 2
+    gauge: 18AWG
+    color: [red, red]
+    type: Tefzel
+    ends:
+      - connector: TAXI_LIGHT_SWITCH
+        pin: 1
+        label: "+12VDC_IN"
+      - connector: TAXI_LIGHT_SWITCH
+        pin: 2
+        label: "LOAD_OUT"
+      # Connect to panel power and taxi light +12VDC
+
+  - name: Wigwag_Module
+    wirecount: 3
+    gauge: 18AWG
+    color: [blue, yellow, red]
+    type: Tefzel
+    ends:
+      - connector: WIGWAG_MODULE
+        pin: 1
+        label: "LANDING_LIGHT_OUT"
+      - connector: WIGWAG_MODULE
+        pin: 2
+        label: "TAXI_LIGHT_OUT"
+      - connector: WIGWAG_MODULE
+        pin: 3
+        label: "+12VDC_IN"
+      # Connect to landing light, taxi light, and power for wigwag operation

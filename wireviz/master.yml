@@ -1,0 +1,47 @@
+project:
+  name: Zenith Super Duty Avionics Harness
+  author: Kevin Berger
+  version: 1.0
+
+include:
+  # Avionics
+  - cables/avionics/gdu460.yml
+  - cables/avionics/gnx375.yml
+  - cables/avionics/gtr200.yml
+  - cables/avionics/gma245.yml
+  - cables/avionics/gmc507.yml
+  - cables/avionics/g5efis.yml
+
+  # Autopilot
+  - cables/autopilot/gad27.yml
+  - cables/autopilot/gad29.yml
+  - cables/autopilot/gsa28_pitch.yml
+  - cables/autopilot/gsa28_roll.yml
+
+  # Sensors
+  - cables/sensors/gap26.yml
+  - cables/sensors/gmu11.yml
+  - cables/sensors/gsu25c.yml
+  - cables/sensors/rayallen_pos12.yml
+  - cables/sensors/rayallen_t2_7a.yml
+
+  # Lights
+  - cables/lights/landing_light.yml
+  - cables/lights/taxi_light.yml
+  - cables/lights/position_lights.yml
+
+  # Antennas
+  - cables/antennas/ga35_antenna.yml
+  - cables/antennas/xpdr_antenna.yml
+  - cables/antennas/com_antenna.yml
+
+  # Misc
+  - cables/misc/can_terminators.yml
+
+settings:
+  wire_labeling: true
+  default_wire_color:
+    power: red
+    ground: black
+    signal: white
+  default_wire_gauge: 22AWG

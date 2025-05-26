@@ -1,0 +1,39 @@
+description: |
+  COM Antenna: VHF communications antenna for the GTR 200 radio.
+  This file documents the wiring for the coaxial cable connection between the radio and the antenna.
+  Refer to the COMANT installation manual for mounting and wiring details:
+  https://www.aircraftspruce.com/catalog/pdf/comant_install.pdf
+
+connectors:
+  COM_ANTENNA:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+  GTR200_ANTENNA_PORT:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+cables:
+  - name: COM_Antenna_Coax
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GTR200_ANTENNA_PORT
+        pin: 1
+        label: "CENTER"
+      - connector: GTR200_ANTENNA_PORT
+        pin: 2
+        label: "SHIELD"
+      - connector: COM_ANTENNA
+        pin: 1
+        label: "CENTER"
+      - connector: COM_ANTENNA
+        pin: 2
+        label: "SHIELD"
+      # Route RG400 coax from radio to antenna, minimizing bends and avoiding sharp edges#

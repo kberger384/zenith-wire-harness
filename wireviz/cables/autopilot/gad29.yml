@@ -1,0 +1,76 @@
+description: |
+  Garmin GAD 29: ARINC 429 interface module (for GNX 375 to G3X and other avionics).
+  This file documents the wiring for power, ground, CAN bus, and ARINC 429 connections.
+  Refer to the Garmin GAD 29 installation manual for full pinout and installation details:
+  https://support.garmin.com/en-US/?partNumber=011-02281-00&tab=manuals
+
+connectors:
+  GAD29_J1:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: CAN_H
+      4: CAN_L
+      5: ARINC429_TXA
+      6: ARINC429_TXB
+      7: ARINC429_RXA
+      8: ARINC429_RXB
+      # ...add more as needed
+
+cables:
+  - name: GAD29_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GAD29_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: GAD29_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: GAD29_CAN
+    wirecount: 2
+    gauge: 22AWG
+    color: [white, blue]
+    type: Shielded
+    ends:
+      - connector: GAD29_J1
+        pin: 3
+        label: "CAN_H"
+      - connector: GAD29_J1
+        pin: 4
+        label: "CAN_L"
+      # Connect to CAN bus
+
+  - name: GAD29_ARINC429_TX
+    wirecount: 2
+    gauge: 22AWG
+    color: [blue, white]
+    type: Shielded
+    ends:
+      - connector: GAD29_J1
+        pin: 5
+        label: "ARINC429_TXA"
+      - connector: GAD29_J1
+        pin: 6
+        label: "ARINC429_TXB"
+      # Connect to ARINC receiver (e.g., GNX 375, G3X)
+
+  - name: GAD29_ARINC429_RX
+    wirecount: 2
+    gauge: 22AWG
+    color: [green, yellow]
+    type: Shielded
+    ends:
+      - connector: GAD29_J1
+        pin: 7
+        label: "ARINC429_RXA"
+      - connector: GAD29_J1
+        pin: 8
+        label: "ARINC429_RXB"
+      # Connect to ARINC transmitter (e.g., GNX 375, G3X)

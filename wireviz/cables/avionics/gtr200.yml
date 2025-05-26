@@ -1,0 +1,80 @@
+description: |
+  Garmin GTR 200: VHF COM Radio.
+  This file documents the wiring for power, ground, audio, PTT, and antenna connections.
+  Refer to the Garmin GTR 200 installation manual for full pinout and installation details:
+  https://support.garmin.com/en-US/?partNumber=010-00985-01&tab=manuals
+
+connectors:
+  GTR200_J1:
+    type: DB25
+    pins:
+      1: +12VDC
+      2: GND
+      3: AUDIO_L
+      4: AUDIO_R
+      5: PTT
+      6: MIC
+      7: COM_ANT
+      # ...add more as needed
+
+cables:
+  - name: GTR200_Power
+    wirecount: 2
+    gauge: 20AWG
+    color: [red, black]
+    type: Tefzel
+    ends:
+      - connector: GTR200_J1
+        pin: 1
+        label: "+12VDC"
+      - connector: GTR200_J1
+        pin: 2
+        label: "GND"
+      # Connect to power distribution and ground block
+
+  - name: GTR200_Audio
+    wirecount: 2
+    gauge: 22AWG
+    color: [white, white]
+    type: Shielded
+    ends:
+      - connector: GTR200_J1
+        pin: 3
+        label: "AUDIO_L"
+      - connector: GTR200_J1
+        pin: 4
+        label: "AUDIO_R"
+      # Connect to audio panel
+
+  - name: GTR200_PTT
+    wirecount: 1
+    gauge: 22AWG
+    color: [yellow]
+    type: Tefzel
+    ends:
+      - connector: GTR200_J1
+        pin: 5
+        label: "PTT"
+      # Connect to yoke or stick switch
+
+  - name: GTR200_MIC
+    wirecount: 1
+    gauge: 22AWG
+    color: [green]
+    type: Tefzel
+    ends:
+      - connector: GTR200_J1
+        pin: 6
+        label: "MIC"
+      # Connect to microphone jack
+
+  - name: GTR200_Antenna
+    wirecount: 1
+    gauge: RG400
+    color: [none]
+    type: Coax
+    ends:
+      - connector: GTR200_J1
+        pin: 7
+        label: "COM_ANT"
+      # Connect to COM antenna
