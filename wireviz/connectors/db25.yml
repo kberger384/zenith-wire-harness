@@ -6,7 +6,7 @@ description: |
 connectors:
   DB25:
     type: DB25
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H

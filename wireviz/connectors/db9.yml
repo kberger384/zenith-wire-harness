@@ -6,7 +6,7 @@ description: |
 connectors:
   DB9:
     type: DB9
-    pins:
+    pinlabels:
       1: PIN_1
       2: PIN_2
       3: PIN_3

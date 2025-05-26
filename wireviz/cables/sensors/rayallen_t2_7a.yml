@@ -7,7 +7,7 @@ description: |
 connectors:
   T2_7A_J1:
     type: 5-pin
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: TRIM_UP
@@ -16,13 +16,13 @@ connectors:
 
   TRIM_SWITCH:
     type: DPDT Switch
-    pins:
+    pinlabels:
       1: TRIM_UP
       2: TRIM_DOWN
 
   EFIS_INPUT:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: POSITION_FEEDBACK
 
 cables:

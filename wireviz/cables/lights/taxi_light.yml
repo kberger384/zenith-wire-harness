@@ -7,36 +7,36 @@ description: |
 connectors:
   TAXI_LIGHT_J1:
     type: 2-pin
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
 
   TAXI_LIGHT_SWITCH:
     type: SPST Switch
-    pins:
+    pinlabels:
       1: +12VDC_IN
       2: LOAD_OUT
 
   WIGWAG_MODULE:
     type: 3-pin
-    pins:
+    pinlabels:
       1: LANDING_LIGHT_OUT
       2: TAXI_LIGHT_OUT
       3: +12VDC_IN
 
   PWR_DIST:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: +12VDC
 
   GND_BLOCK:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: GND
 
   LANDING_LIGHT_J1:
     type: 2-pin
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
 

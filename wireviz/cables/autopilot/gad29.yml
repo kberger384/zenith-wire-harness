@@ -7,7 +7,7 @@ description: |
 connectors:
   GAD29_J1:
     type: DB25
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H
@@ -20,7 +20,7 @@ connectors:
 
   GNX375_P1001:
     type: DB25
-    pins:
+    pinlabels:
       3: ARINC429_TXA
       4: ARINC429_TXB
       5: ARINC429_RXA

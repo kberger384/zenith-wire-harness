@@ -7,38 +7,23 @@ description: |
 connectors:
   GMA245_J1:
     type: DB25
-    pins:
-      1: +12VDC
-      2: GND
-      3: AUDIO_IN_L
-      4: AUDIO_IN_R
-      5: AUDIO_OUT_L
-      6: AUDIO_OUT_R
-      7: PTT
-      8: MIC
-      # ...add more as needed
+    pinlabels: [+12VDC, GND, AUDIO_IN_L, AUDIO_IN_R, AUDIO_OUT_L, AUDIO_OUT_R, PTT, MIC]
 
   AUDIO_SRC:
     type: TerminalBlock
-    pins:
-      1: AUDIO_L
-      2: AUDIO_R
+    pinlabels: [AUDIO_L, AUDIO_R]
 
   HEADSET_JACK:
     type: TerminalBlock
-    pins:
-      1: AUDIO_L
-      2: AUDIO_R
+    pinlabels: [AUDIO_L, AUDIO_R]
 
   PTT_SWITCH:
     type: TerminalBlock
-    pins:
-      1: PTT
+    pinlabels: [PTT]
 
   MIC_JACK:
     type: TerminalBlock
-    pins:
-      1: MIC
+    pinlabels: [MIC]
 
 cables:
   GMA245_Power:
@@ -68,27 +53,31 @@ cables:
 
 connections:
   -
-    - GMA245_J1: [+12VDC, GND]
-    - GMA245_Power: [1, 2]
+    - GMA245_J1: [1]
+    - GMA245_Power: [1]
     - PWR_DIST: [1]
+
+  -
+    - GMA245_J1: [2]
+    - GMA245_Power: [2]
     - GND_BLOCK: [1]
 
   -
-    - GMA245_J1: [AUDIO_IN_L, AUDIO_IN_R]
+    - GMA245_J1: [3, 4]
     - GMA245_Audio_In: [1, 2]
-    - AUDIO_SRC: [AUDIO_L, AUDIO_R]
+    - AUDIO_SRC: [1, 2]
 
   -
-    - GMA245_J1: [AUDIO_OUT_L, AUDIO_OUT_R]
+    - GMA245_J1: [5, 6]
     - GMA245_Audio_Out: [1, 2]
-    - HEADSET_JACK: [AUDIO_L, AUDIO_R]
+    - HEADSET_JACK: [1, 2]
 
   -
-    - GMA245_J1: [PTT]
+    - GMA245_J1: [7]
     - GMA245_PTT: [1]
-    - PTT_SWITCH: [PTT]
+    - PTT_SWITCH: [1]
 
   -
-    - GMA245_J1: [MIC]
+    - GMA245_J1: [8]
     - GMA245_MIC: [1]
-    - MIC_JACK: [MIC]
+    - MIC_JACK: [1]

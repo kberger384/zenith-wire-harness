@@ -7,7 +7,7 @@ description: |
 connectors:
   GMU11_J1:
     type: DB9
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H

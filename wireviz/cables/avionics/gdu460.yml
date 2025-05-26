@@ -1,43 +1,49 @@
-description: |
-  Garmin GDU 460: 10.6” G3X Touch Primary Flight Display.
-  This file documents the wiring for power, ground, and CAN bus connections.
-  Refer to the Garmin G3X installation manual for full pinout and installation details:
-  https://static.garmincdn.com/pumac/190-01115-01_AJ.pdf
+metadata: 
+    title: "Zenith CH750 SD - GDU 460 System"
+    author: "Kevin Berger"
+    revision: "v1.0"
+    date: "2025-05-26"
+    description: |
+      Garmin GDU 460: 10.6”  G3X Touch Primary Flight Display.
+      This file documents the wiring for power, ground, and CAN bus connections.
+      Refer to the Garmin G3X installation manual for full pinout and installation details:
+      https://static.garmincdn.com/pumac/190-01115-01_AJ.pdf
+
 
 connectors:
   GDU460_J1:
     type: DB25
-    pins: [PWR, GND, CAN_H, CAN_L]
+    pinlabels: [PWR, GND, CAN_H, CAN_L]
     # ...add more pins as needed
 
   PWR_DIST:
     type: TerminalBlock
-    pins: [PWR]
+    pinlabels: [PWR]
 
   GND_BLOCK:
     type: TerminalBlock
-    pins: [GND]
+    pinlabels: [GND]
 
   CAN_BUS:
     type: TerminalBlock
-    pins: [CAN_H, CAN_L]
+    pinlabels: [CAN_H, CAN_L]
 
 cables:
   GDU460_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GDU460_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
 connections:
   -
-    - GDU460_J1: [PWR]
+    - GDU460_J1: [1]
     - GDU460_Power: [1]
-    - PWR_DIST: [PWR]
+    - PWR_DIST: [1]
 
   -
     - GDU460_J1: [GND]

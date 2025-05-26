@@ -7,7 +7,7 @@ description: |
 connectors:
   GAD27_J1:
     type: DB25
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H
@@ -20,13 +20,13 @@ connectors:
 
   TRIM_SWITCH:
     type: DPDT Switch
-    pins:
+    pinlabels:
       1: TRIM_UP
       2: TRIM_DOWN
 
   FLAP_SWITCH:
     type: DPDT Switch
-    pins:
+    pinlabels:
       1: FLAP_EXTEND
       2: FLAP_RETRACT
 

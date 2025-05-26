@@ -1,32 +1,34 @@
-description: |
-  Garmin GMC 507: Autopilot Control Head.
-  This file documents the wiring for power, ground, CAN bus, and control connections.
-  Refer to the Garmin GMC 507 installation manual for full pinout and installation details:
-  https://support.garmin.com/en-US/?partNumber=010-01230-00&tab=manuals
+metadata:
+  description: |
+    Garmin GMC 507: Autopilot Control Head.
+    This file documents the wiring for power, ground, CAN bus, and control connections.
+    Refer to the Garmin GMC 507 installation manual for full pinout and installation details:
+    https://support.garmin.com/en-US/?partNumber=010-01230-00&tab=manuals
 
 connectors:
   GMC507_J1:
     type: DB15
-    pins:
-      1: +12VDC
-      2: GND
-      3: CAN_H
-      4: CAN_L
-      5: AP_DISC
-      6: TRIM_INT
-      # ...add more as needed
+    pinlabels: [+12VDC, GND, CAN_H, CAN_L, AP_DISC, TRIM_INT]
 
   AP_DISC_SWITCH:
     type: SPST Switch
-    pins:
-      1: AP_DISC
-      2: GND
+    pinlabels: [AP_DISC, GND]
 
   TRIM_INT_SWITCH:
     type: SPST Switch
-    pins:
-      1: TRIM_INT
-      2: GND
+    pinlabels: [TRIM_INT, GND]
+      
+  PWR_DIST:
+    type: TerminalBlock
+    pinlabels: [ +12VDC ]
+
+  GND_BLOCK:
+    type: TerminalBlock
+    pinlabels: [ GND ]
+
+  CAN_BUS:
+    type: TerminalBlock
+    pinlabels: [ CAN_H, CAN_L ]
 
 cables:
   GMC507_Power:
@@ -51,17 +53,21 @@ cables:
 
 connections:
   -
-    - GMC507_J1: [+12VDC, GND]
-    - GMC507_Power: [1, 2]
+    - GMC507_J1: [1]
+    - GMC507_Power: [1]
     - PWR_DIST: [1]
+
+  -
+    - GMC507_J1: [2]
+    - GMC507_Power: [2]
     - GND_BLOCK: [1]
 
   -
-    - GMC507_J1: [CAN_H, CAN_L]
+    - GMC507_J1: [3, 4]
     - GMC507_CAN: [1, 2]
     - CAN_BUS: [1, 2]
 
   -
-    - GMC507_J1: [AP_DISC]
+    - GMC507_J1: [5]
     - GMC507_AP_DISC: [1]
-    - AP_DISC_SWITCH: [AP_DISC]
+    - AP_DISC_SWITCH: [1]

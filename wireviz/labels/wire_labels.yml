@@ -1,3 +1,6 @@
+# File outdated and not supported by Wireviz.
+# Parse the other yml files to get connector names and pin positions to create labels.
+
 labels:
   power: "+12VDC"
   ground: "GND"

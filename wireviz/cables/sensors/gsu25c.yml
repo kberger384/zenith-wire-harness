@@ -7,7 +7,7 @@ description: |
 connectors:
   GSU25C_J1:
     type: DB15
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H
@@ -18,12 +18,12 @@ connectors:
 
   PITOT_PORT:
     type: Port
-    pins:
+    pinlabels:
       1: PITOT
 
   STATIC_PORT:
     type: Port
-    pins:
+    pinlabels:
       1: STATIC
 
 cables:

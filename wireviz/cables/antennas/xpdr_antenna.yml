@@ -7,11 +7,11 @@ description: |
 connectors:
   XPDR_ANTENNA:
     type: BNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
   GNX375_XPDR_ANT_PORT:
     type: BNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
 cables:
   XPDR_Antenna_Coax:

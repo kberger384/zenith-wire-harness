@@ -7,18 +7,11 @@ description: |
 connectors:
   G5_J1:
     type: DB9
-    pins:
-      1: +12VDC
-      2: GND
-      3: CAN_H
-      4: CAN_L
-      5: BACKUP_BATT
-      # ...add more as needed
-
+    pinlabels: [+12VDC, GND, CAN_H, CAN_L, BACKUP_BATT]
+      
   BACKUP_BATT:
     type: Battery
-    pins:
-      1: +12VDC
+    pinlabels: [+12VDC]
 
 cables:
   G5EFIS_Power:
@@ -38,17 +31,21 @@ cables:
 
 connections:
   -
-    - G5_J1: [+12VDC, GND]
-    - G5EFIS_Power: [1, 2]
+    - G5_J1: [1]
+    - G5EFIS_Power: [1]
     - PWR_DIST: [1]
+
+  -
+    - G5_J1: [2]
+    - G5EFIS_Power: [2]
     - GND_BLOCK: [1]
 
   -
-    - G5_J1: [CAN_H, CAN_L]
+    - G5_J1: [3, 4]
     - G5EFIS_CAN: [1, 2]
     - CAN_BUS: [1, 2]
 
   -
-    - G5_J1: [BACKUP_BATT]
+    - G5_J1: [5]
     - G5EFIS_Backup_Battery: [1]
-    - BACKUP_BATT: [+12VDC]
+    - BACKUP_BATT: [1]

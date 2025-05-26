@@ -7,24 +7,24 @@ description: |
 connectors:
   LANDING_LIGHT_J1:
     type: 2-pin
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
 
   LANDING_LIGHT_SWITCH:
     type: SPST Switch
-    pins:
+    pinlabels:
       1: +12VDC_IN
       2: LOAD_OUT
 
   PWR_DIST:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: +12VDC
 
   GND_BLOCK:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: GND
 
 cables:

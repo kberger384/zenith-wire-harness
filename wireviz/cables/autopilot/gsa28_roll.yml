@@ -7,7 +7,7 @@ description: |
 connectors:
   GSA28_ROLL_J1:
     type: DB15
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: CAN_H
@@ -18,7 +18,7 @@ connectors:
 
   GMC507_J1:
     type: DB15
-    pins:
+    pinlabels:
       5: SERVO_CTRL
       6: SERVO_FEEDBACK
 

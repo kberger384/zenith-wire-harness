@@ -7,11 +7,11 @@ description: |
 connectors:
   GA35_ANTENNA:
     type: TNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
   GNX375_GPS_ANT_PORT:
     type: TNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
 cables:
   GA35_Antenna_Coax:

@@ -7,19 +7,19 @@ description: |
 connectors:
   POS12_J1:
     type: 3-pin
-    pins:
+    pinlabels:
       1: +5VDC
       2: GND
       3: POSITION_SIGNAL
 
   EFIS_INPUT:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: POSITION_SIGNAL
 
   PWR_DIST_5V:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: +5VDC
 
 cables:

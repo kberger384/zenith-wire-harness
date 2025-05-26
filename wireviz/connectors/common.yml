@@ -1,12 +1,12 @@
 connectors:
   PWR_DIST:
     type: TerminalBlock
-    pins: [ +12VDC ]
+    pinlabels: [ +12VDC ]
 
   GND_BLOCK:
     type: TerminalBlock
-    pins: [ GND ]
+    pinlabels: [ GND ]
 
   CAN_BUS:
     type: TerminalBlock
-    pins: [ CAN_H, CAN_L ]
+    pinlabels: [ CAN_H, CAN_L ]

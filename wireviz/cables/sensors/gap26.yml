@@ -7,7 +7,7 @@ description: |
 connectors:
   GAP26_J1:
     type: Circular
-    pins:
+    pinlabels:
       1: +14VDC_HEAT
       2: GND
       3: AOA_SIGNAL
@@ -16,12 +16,12 @@ connectors:
 
   G3X_AOA:
     type: DB25
-    pins:
+    pinlabels:
       1: AOA_SIGNAL
 
   PITOT_HEAT_CTRL:
     type: Relay
-    pins:
+    pinlabels:
       1: HEAT_CONTROL
 
 cables:

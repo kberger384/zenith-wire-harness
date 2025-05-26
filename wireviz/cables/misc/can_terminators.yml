@@ -5,17 +5,17 @@ description: |
 connectors:
   CAN_TERM_A:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: CAN_H
       2: CAN_L
   CAN_TERM_B:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: CAN_H
       2: CAN_L
   CAN_BUS:
     type: TerminalBlock
-    pins:
+    pinlabels:
       1: CAN_H
       2: CAN_L
 

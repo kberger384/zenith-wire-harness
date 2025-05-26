@@ -7,7 +7,7 @@ description: |
 connectors:
   GNX375_P1001:
     type: DB25
-    pins:
+    pinlabels:
       1: +12VDC
       2: GND
       3: ARINC429_TXA
@@ -22,7 +22,7 @@ connectors:
 
   GAD29_J1:
     type: DB25
-    pins:
+    pinlabels:
       1: ARINC429_TXA
       2: ARINC429_TXB
       3: ARINC429_RXA
@@ -30,17 +30,17 @@ connectors:
 
   G3X_RS232:
     type: DB9
-    pins:
+    pinlabels:
       1: RS232_TX
       2: RS232_RX
 
   XPDR_ANTENNA:
     type: BNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
   GA35_ANTENNA:
     type: TNC
-    pins: [CENTER, SHIELD]
+    pinlabels: [CENTER, SHIELD]
 
 cables:
   GNX375_Power:

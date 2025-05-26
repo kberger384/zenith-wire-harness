@@ -6,13 +6,13 @@ description: |
 connectors:
   MOLEX_2PIN:
     type: Molex 2-pin
-    pins:
+    pinlabels:
       1: PIN_1
       2: PIN_2
 
   MOLEX_4PIN:
     type: Molex 4-pin
-    pins:
+    pinlabels:
       1: PIN_1
       2: PIN_2
       3: PIN_3
