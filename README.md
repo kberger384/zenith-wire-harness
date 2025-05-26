@@ -5,7 +5,7 @@ This repository documents the avionics for a Zenith Super Duty build.  Most comp
 
 The build is documented using Wireviz, a Python library that interprets and visualizes YML files.
 
-#Panel Mounted Avionics
+# Panel Mounted Avionics
 | Item                   | Function                  | Garmin P/N   | Wiring/Install Manual URL                                                                                                                       |
 | ---------------------- | ------------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | GDU 460                | 10.6” G3X Touch Display   | 010-01471-00 | [https://static.garmincdn.com/pumac/190-01115-01\_AJ.pdf](https://static.garmincdn.com/pumac/190-01115-01_AJ.pdf)                               |
@@ -16,7 +16,7 @@ The build is documented using Wireviz, a Python library that interprets and visu
 | G5 EFIS (Experimental) | Backup Attitude Indicator | 010-01291-30 | [https://static.garmincdn.com/pumac/190-01112-10\_AJ.pdf](https://static.garmincdn.com/pumac/190-01112-10_AJ.pdf)                               |
 | G5 Backup Battery      | Power backup for G5       | 010-12373-00 | (See above in G5 manual)                                                                                                                        |
 
-#Sensors / Other 
+# Sensors / Other 
 | Item                      | Function                             | Garmin P/N              | Wiring/Install Manual URL                                                                                                                       |
 | ------------------------- | ------------------------------------ | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | GAP 26 Heated Pitot       | Heated pitot + AOA (14V)             | 010-01094-00 (L-AOA-14) | [https://support.garmin.com/en-US/?partNumber=010-01094-00\&tab=manuals](https://support.garmin.com/en-US/?partNumber=010-01094-00&tab=manuals) |
@@ -31,7 +31,7 @@ The build is documented using Wireviz, a Python library that interprets and visu
 | Ray Allen Trim Servo      | Elevator electric trim servo         | T2-7A                   | [https://www.rayallencompany.com/products/t2-trim-tab-servo/](https://www.rayallencompany.com/products/t2-trim-tab-servo/)                      |
 
 
-#Exterior Lights
+# Exterior Lights
 | Position           | Light Type       | Model            | AeroLED P/N   | Wiring/Install Manual URL                                                                                                                                                                  |
 | ------------------ | ---------------- | ---------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Left Wingtip       | Nav/Strobe Combo | Pulsar NSP Green | 01-1030-G-12V | [https://aeroleds.com/wp-content/uploads/2021/09/Pulsar-NSP-Installation-Manual-Rev-P.pdf](https://aeroleds.com/wp-content/uploads/2021/09/Pulsar-NSP-Installation-Manual-Rev-P.pdf)       |
@@ -40,7 +40,7 @@ The build is documented using Wireviz, a Python library that interprets and visu
 | Left Wing Leading  | Landing/Wig-Wag  | Sunspot 36 LX    | 01-1030-L-12V | [https://aeroleds.com/wp-content/uploads/2023/07/Sunspot-36-LX-Installation-Manual-Rev-F.pdf](https://aeroleds.com/wp-content/uploads/2023/07/Sunspot-36-LX-Installation-Manual-Rev-F.pdf) |
 | Right Wing Leading | Landing/Wig-Wag  | Sunspot 36 LX    | 01-1030-L-12V | [https://aeroleds.com/wp-content/uploads/2023/07/Sunspot-36-LX-Installation-Manual-Rev-F.pdf](https://aeroleds.com/wp-content/uploads/2023/07/Sunspot-36-LX-Installation-Manual-Rev-F.pdf) |
 
-#Antennas
+# Antennas
 | Item          | Function                   | Garmin P/N   | Wiring/Install Manual URL                                                                                                              |
 | ------------- | -------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | GA 35 Antenna | GPS WAAS antenna (GNX 375) | 011-00134-00 | [https://buy.garmin.com/en-US/US/p/12035](https://buy.garmin.com/en-US/US/p/12035)                                                     |
