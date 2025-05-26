@@ -28,10 +28,15 @@ cables:
       - connector: GMA245_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GMA245_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GMA245_Audio_In
     wirecount: 2
@@ -42,10 +47,15 @@ cables:
       - connector: GMA245_J1
         pin: 3
         label: "AUDIO_IN_L"
+      - connector: AUDIO_SRC
+        pin: 1
+        label: "AUDIO_L"
       - connector: GMA245_J1
         pin: 4
         label: "AUDIO_IN_R"
-      # Connect to audio source (e.g., radio, music input)
+      - connector: AUDIO_SRC
+        pin: 2
+        label: "AUDIO_R"
 
   - name: GMA245_Audio_Out
     wirecount: 2
@@ -56,10 +66,15 @@ cables:
       - connector: GMA245_J1
         pin: 5
         label: "AUDIO_OUT_L"
+      - connector: HEADSET_JACK
+        pin: 1
+        label: "AUDIO_L"
       - connector: GMA245_J1
         pin: 6
         label: "AUDIO_OUT_R"
-      # Connect to headset jacks or intercom
+      - connector: HEADSET_JACK
+        pin: 2
+        label: "AUDIO_R"
 
   - name: GMA245_PTT
     wirecount: 1
@@ -70,7 +85,9 @@ cables:
       - connector: GMA245_J1
         pin: 7
         label: "PTT"
-      # Connect to yoke or stick switch
+      - connector: PTT_SWITCH
+        pin: 1
+        label: "PTT"
 
   - name: GMA245_MIC
     wirecount: 1
@@ -81,4 +98,6 @@ cables:
       - connector: GMA245_J1
         pin: 8
         label: "MIC"
-      # Connect to microphone jack
+      - connector: MIC_JACK
+        pin: 1
+        label: "MIC"

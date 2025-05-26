@@ -18,6 +18,18 @@ connectors:
       8: FLAP_RETRACT
       # ...add more as needed
 
+  TRIM_SWITCH:
+    type: DPDT Switch
+    pins:
+      1: TRIM_UP
+      2: TRIM_DOWN
+
+  FLAP_SWITCH:
+    type: DPDT Switch
+    pins:
+      1: FLAP_EXTEND
+      2: FLAP_RETRACT
+
 cables:
   - name: GAD27_Power
     wirecount: 2
@@ -28,10 +40,15 @@ cables:
       - connector: GAD27_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GAD27_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GAD27_CAN
     wirecount: 2
@@ -42,10 +59,15 @@ cables:
       - connector: GAD27_J1
         pin: 3
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: GAD27_J1
         pin: 4
         label: "CAN_L"
-      # Connect to CAN bus
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
 
   - name: GAD27_Trim
     wirecount: 2
@@ -56,10 +78,15 @@ cables:
       - connector: GAD27_J1
         pin: 5
         label: "TRIM_UP"
+      - connector: TRIM_SWITCH
+        pin: 1
+        label: "TRIM_UP"
       - connector: GAD27_J1
         pin: 6
         label: "TRIM_DOWN"
-      # Connect to trim switch or servo
+      - connector: TRIM_SWITCH
+        pin: 2
+        label: "TRIM_DOWN"
 
   - name: GAD27_Flap
     wirecount: 2
@@ -70,7 +97,12 @@ cables:
       - connector: GAD27_J1
         pin: 7
         label: "FLAP_EXTEND"
+      - connector: FLAP_SWITCH
+        pin: 1
+        label: "FLAP_EXTEND"
       - connector: GAD27_J1
         pin: 8
         label: "FLAP_RETRACT"
-      # Connect to flap switch or actuator
+      - connector: FLAP_SWITCH
+        pin: 2
+        label: "FLAP_RETRACT"

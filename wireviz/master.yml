@@ -4,6 +4,7 @@ project:
   version: 1.0
 
 include:
+  - connectors/common.yml
   # Avionics
   - cables/avionics/gdu460.yml
   - cables/avionics/gnx375.yml

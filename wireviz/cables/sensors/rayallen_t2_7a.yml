@@ -14,6 +14,17 @@ connectors:
       4: TRIM_DOWN
       5: POSITION_FEEDBACK
 
+  TRIM_SWITCH:
+    type: DPDT Switch
+    pins:
+      1: TRIM_UP
+      2: TRIM_DOWN
+
+  EFIS_INPUT:
+    type: TerminalBlock
+    pins:
+      1: POSITION_FEEDBACK
+
 cables:
   - name: T2_7A_Power
     wirecount: 2
@@ -24,8 +35,14 @@ cables:
       - connector: T2_7A_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: T2_7A_J1
         pin: 2
+        label: "GND"
+      - connector: GND_BLOCK
+        pin: 1
         label: "GND"
       # Connect to trim servo power and ground
 
@@ -38,8 +55,14 @@ cables:
       - connector: T2_7A_J1
         pin: 3
         label: "TRIM_UP"
+      - connector: TRIM_SWITCH
+        pin: 1
+        label: "TRIM_UP"
       - connector: T2_7A_J1
         pin: 4
+        label: "TRIM_DOWN"
+      - connector: TRIM_SWITCH
+        pin: 2
         label: "TRIM_DOWN"
       # Connect to trim switch or controller
 
@@ -51,5 +74,8 @@ cables:
     ends:
       - connector: T2_7A_J1
         pin: 5
+        label: "POSITION_FEEDBACK"
+      - connector: EFIS_INPUT
+        pin: 1
         label: "POSITION_FEEDBACK"
       # Connect to trim position indicator or EFIS input

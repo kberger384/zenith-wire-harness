@@ -12,6 +12,16 @@ connectors:
       2: GND
       3: POSITION_SIGNAL
 
+  EFIS_INPUT:
+    type: TerminalBlock
+    pins:
+      1: POSITION_SIGNAL
+
+  PWR_DIST_5V:
+    type: TerminalBlock
+    pins:
+      1: +5VDC
+
 cables:
   - name: POS12_Power
     wirecount: 2
@@ -22,8 +32,14 @@ cables:
       - connector: POS12_J1
         pin: 1
         label: "+5VDC"
+      - connector: PWR_DIST_5V
+        pin: 1
+        label: "+5VDC"
       - connector: POS12_J1
         pin: 2
+        label: "GND"
+      - connector: GND_BLOCK
+        pin: 1
         label: "GND"
       # Connect to trim position sensor power and ground
 
@@ -35,5 +51,8 @@ cables:
     ends:
       - connector: POS12_J1
         pin: 3
+        label: "POSITION_SIGNAL"
+      - connector: EFIS_INPUT
+        pin: 1
         label: "POSITION_SIGNAL"
       # Connect to trim position indicator or EFIS input

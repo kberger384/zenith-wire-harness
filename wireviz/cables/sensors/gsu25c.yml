@@ -16,6 +16,16 @@ connectors:
       6: STATIC
       # ...add more as needed
 
+  PITOT_PORT:
+    type: Port
+    pins:
+      1: PITOT
+
+  STATIC_PORT:
+    type: Port
+    pins:
+      1: STATIC
+
 cables:
   - name: GSU25C_Power
     wirecount: 2
@@ -26,8 +36,14 @@ cables:
       - connector: GSU25C_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GSU25C_J1
         pin: 2
+        label: "GND"
+      - connector: GND_BLOCK
+        pin: 1
         label: "GND"
       # Connect to power distribution and ground block
 
@@ -40,8 +56,14 @@ cables:
       - connector: GSU25C_J1
         pin: 3
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: GSU25C_J1
         pin: 4
+        label: "CAN_L"
+      - connector: CAN_BUS
+        pin: 2
         label: "CAN_L"
       # Connect to CAN bus
 

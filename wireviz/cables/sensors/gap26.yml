@@ -14,6 +14,16 @@ connectors:
       4: HEAT_CONTROL
       # ...add more as needed
 
+  G3X_AOA:
+    type: DB25
+    pins:
+      1: AOA_SIGNAL
+
+  PITOT_HEAT_CTRL:
+    type: Relay
+    pins:
+      1: HEAT_CONTROL
+
 cables:
   - name: GAP26_Heater_Power
     wirecount: 2
@@ -24,8 +34,14 @@ cables:
       - connector: GAP26_J1
         pin: 1
         label: "+14VDC_HEAT"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+14VDC_HEAT"
       - connector: GAP26_J1
         pin: 2
+        label: "GND"
+      - connector: GND_BLOCK
+        pin: 1
         label: "GND"
       # Connect to pitot heat power and ground
 
@@ -38,6 +54,9 @@ cables:
       - connector: GAP26_J1
         pin: 3
         label: "AOA_SIGNAL"
+      - connector: G3X_AOA
+        pin: 1
+        label: "AOA_SIGNAL"
       # Connect to G3X AOA input
 
   - name: GAP26_Heat_Control
@@ -48,5 +67,8 @@ cables:
     ends:
       - connector: GAP26_J1
         pin: 4
+        label: "HEAT_CONTROL"
+      - connector: PITOT_HEAT_CTRL
+        pin: 1
         label: "HEAT_CONTROL"
       # Connect to pitot heat control circuit

@@ -16,6 +16,12 @@ connectors:
       6: SERVO_FEEDBACK
       # ...add more as needed
 
+  GMC507_J1:
+    type: DB15
+    pins:
+      5: SERVO_CTRL
+      6: SERVO_FEEDBACK
+
 cables:
   - name: GSA28_Roll_Power
     wirecount: 2
@@ -26,10 +32,15 @@ cables:
       - connector: GSA28_ROLL_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GSA28_ROLL_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GSA28_Roll_CAN
     wirecount: 2
@@ -40,10 +51,15 @@ cables:
       - connector: GSA28_ROLL_J1
         pin: 3
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: GSA28_ROLL_J1
         pin: 4
         label: "CAN_L"
-      # Connect to CAN bus
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
 
   - name: GSA28_Roll_Control
     wirecount: 2
@@ -54,7 +70,12 @@ cables:
       - connector: GSA28_ROLL_J1
         pin: 5
         label: "SERVO_CTRL"
+      - connector: GMC507_J1
+        pin: 5
+        label: "SERVO_CTRL"
       - connector: GSA28_ROLL_J1
         pin: 6
         label: "SERVO_FEEDBACK"
-      # Connect to autopilot controller
+      - connector: GMC507_J1
+        pin: 6
+        label: "SERVO_FEEDBACK"

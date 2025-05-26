@@ -32,6 +32,16 @@ connectors:
       1: +12VDC_IN
       2: LOAD_OUT
 
+  PWR_DIST:
+    type: TerminalBlock
+    pins:
+      1: +12VDC
+
+  GND_BLOCK:
+    type: TerminalBlock
+    pins:
+      1: GND
+
 cables:
   - name: Nav_Strobe_Power_LH
     wirecount: 2
@@ -42,10 +52,15 @@ cables:
       - connector: NAV_STROBE_LH
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: NAV_STROBE_LH
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: Nav_Strobe_Power_RH
     wirecount: 2
@@ -56,10 +71,15 @@ cables:
       - connector: NAV_STROBE_RH
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: NAV_STROBE_RH
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: Nav_Strobe_Power_Tail
     wirecount: 2
@@ -70,10 +90,15 @@ cables:
       - connector: NAV_STROBE_TAIL
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: NAV_STROBE_TAIL
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: Nav_Strobe_Sync
     wirecount: 3
@@ -90,7 +115,7 @@ cables:
       - connector: NAV_STROBE_TAIL
         pin: 3
         label: "SYNC"
-      # Connect all SYNC pins together for synchronized strobe flashing
+      # All SYNC pins are tied together for synchronization
 
   - name: Nav_Strobe_Switch
     wirecount: 2
@@ -101,7 +126,19 @@ cables:
       - connector: NAV_STROBE_SWITCH
         pin: 1
         label: "+12VDC_IN"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: NAV_STROBE_SWITCH
         pin: 2
         label: "LOAD_OUT"
-      # Connect to panel power and nav/strobe lights +12VDC
+      - connector: NAV_STROBE_LH
+        pin: 1
+        label: "+12VDC"
+      - connector: NAV_STROBE_RH
+        pin: 1
+        label: "+12VDC"
+      - connector: NAV_STROBE_TAIL
+        pin: 1
+        label: "+12VDC"
+      # Switch controls +12VDC to all nav/strobe lights

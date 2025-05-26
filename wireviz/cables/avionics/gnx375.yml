@@ -20,6 +20,32 @@ connectors:
       10: GPS_ANT
       # ...add more as needed per manual
 
+  GAD29_J1:
+    type: DB25
+    pins:
+      1: ARINC429_TXA
+      2: ARINC429_TXB
+      3: ARINC429_RXA
+      4: ARINC429_RXB
+
+  G3X_RS232:
+    type: DB9
+    pins:
+      1: RS232_TX
+      2: RS232_RX
+
+  XPDR_ANTENNA:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
+  GA35_ANTENNA:
+    type: TNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
 cables:
   - name: GNX375_Power
     wirecount: 2
@@ -30,10 +56,15 @@ cables:
       - connector: GNX375_P1001
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GNX375_P1001
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GNX375_ARINC429
     wirecount: 4
@@ -44,16 +75,27 @@ cables:
       - connector: GNX375_P1001
         pin: 3
         label: "ARINC429_TXA"
+      - connector: GAD29_J1
+        pin: 1
+        label: "ARINC429_TXA"
       - connector: GNX375_P1001
         pin: 4
+        label: "ARINC429_TXB"
+      - connector: GAD29_J1
+        pin: 2
         label: "ARINC429_TXB"
       - connector: GNX375_P1001
         pin: 5
         label: "ARINC429_RXA"
+      - connector: GAD29_J1
+        pin: 3
+        label: "ARINC429_RXA"
       - connector: GNX375_P1001
         pin: 6
         label: "ARINC429_RXB"
-      # Connect to GAD29 or other ARINC device
+      - connector: GAD29_J1
+        pin: 4
+        label: "ARINC429_RXB"
 
   - name: GNX375_RS232
     wirecount: 2
@@ -64,10 +106,15 @@ cables:
       - connector: GNX375_P1001
         pin: 7
         label: "RS232_TX"
+      - connector: G3X_RS232
+        pin: 2
+        label: "RS232_RX"
       - connector: GNX375_P1001
         pin: 8
         label: "RS232_RX"
-      # Connect to G3X or other serial device
+      - connector: G3X_RS232
+        pin: 1
+        label: "RS232_TX"
 
   - name: GNX375_Transponder_Antenna
     wirecount: 1
@@ -78,7 +125,10 @@ cables:
       - connector: GNX375_P1001
         pin: 9
         label: "XPDR_ANT"
-      # Connect to XPDR antenna
+      - connector: XPDR_ANTENNA
+        pin: 1
+        label: "CENTER"
+      # Add SHIELD connection if needed
 
   - name: GNX375_GPS_Antenna
     wirecount: 1
@@ -89,6 +139,9 @@ cables:
       - connector: GNX375_P1001
         pin: 10
         label: "GPS_ANT"
-      # Connect to GA 35 antenna
+      - connector: GA35_ANTENNA
+        pin: 1
+        label: "CENTER"
+      # Add SHIELD connection if needed
 
 # Add additional cables for audio, discrete inputs/outputs, and other functions as needed.

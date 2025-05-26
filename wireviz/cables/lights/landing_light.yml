@@ -17,6 +17,16 @@ connectors:
       1: +12VDC_IN
       2: LOAD_OUT
 
+  PWR_DIST:
+    type: TerminalBlock
+    pins:
+      1: +12VDC
+
+  GND_BLOCK:
+    type: TerminalBlock
+    pins:
+      1: GND
+
 cables:
   - name: Landing_Light_Power
     wirecount: 2
@@ -27,10 +37,15 @@ cables:
       - connector: LANDING_LIGHT_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: LANDING_LIGHT_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: Landing_Light_Switch
     wirecount: 2
@@ -41,9 +56,14 @@ cables:
       - connector: LANDING_LIGHT_SWITCH
         pin: 1
         label: "+12VDC_IN"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: LANDING_LIGHT_SWITCH
         pin: 2
         label: "LOAD_OUT"
-      # Connect to panel power and landing light +12VDC
+      - connector: LANDING_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
 
   # Add additional cables for wigwag or pulse module if installed

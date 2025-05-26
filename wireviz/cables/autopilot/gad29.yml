@@ -18,6 +18,14 @@ connectors:
       8: ARINC429_RXB
       # ...add more as needed
 
+  GNX375_P1001:
+    type: DB25
+    pins:
+      3: ARINC429_TXA
+      4: ARINC429_TXB
+      5: ARINC429_RXA
+      6: ARINC429_RXB
+
 cables:
   - name: GAD29_Power
     wirecount: 2
@@ -28,10 +36,15 @@ cables:
       - connector: GAD29_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GAD29_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GAD29_CAN
     wirecount: 2
@@ -42,10 +55,15 @@ cables:
       - connector: GAD29_J1
         pin: 3
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: GAD29_J1
         pin: 4
         label: "CAN_L"
-      # Connect to CAN bus
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
 
   - name: GAD29_ARINC429_TX
     wirecount: 2
@@ -56,10 +74,15 @@ cables:
       - connector: GAD29_J1
         pin: 5
         label: "ARINC429_TXA"
+      - connector: GNX375_P1001
+        pin: 5
+        label: "ARINC429_RXA"
       - connector: GAD29_J1
         pin: 6
         label: "ARINC429_TXB"
-      # Connect to ARINC receiver (e.g., GNX 375, G3X)
+      - connector: GNX375_P1001
+        pin: 6
+        label: "ARINC429_RXB"
 
   - name: GAD29_ARINC429_RX
     wirecount: 2
@@ -70,7 +93,12 @@ cables:
       - connector: GAD29_J1
         pin: 7
         label: "ARINC429_RXA"
+      - connector: GNX375_P1001
+        pin: 3
+        label: "ARINC429_TXA"
       - connector: GAD29_J1
         pin: 8
         label: "ARINC429_RXB"
-      # Connect to ARINC transmitter (e.g., GNX 375, G3X)
+      - connector: GNX375_P1001
+        pin: 4
+        label: "ARINC429_TXB"

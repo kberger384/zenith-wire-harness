@@ -17,6 +17,28 @@ connectors:
       7: COM_ANT
       # ...add more as needed
 
+  AUDIO_PANEL:
+    type: DB25
+    pins:
+      1: AUDIO_L
+      2: AUDIO_R
+
+  PTT_SWITCH:
+    type: SPST Switch
+    pins:
+      1: PTT
+
+  MIC_JACK:
+    type: Jack
+    pins:
+      1: MIC
+
+  COM_ANTENNA:
+    type: BNC
+    pins:
+      1: CENTER
+      2: SHIELD
+
 cables:
   - name: GTR200_Power
     wirecount: 2
@@ -27,10 +49,15 @@ cables:
       - connector: GTR200_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GTR200_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GTR200_Audio
     wirecount: 2
@@ -41,10 +68,15 @@ cables:
       - connector: GTR200_J1
         pin: 3
         label: "AUDIO_L"
+      - connector: AUDIO_PANEL
+        pin: 1
+        label: "AUDIO_L"
       - connector: GTR200_J1
         pin: 4
         label: "AUDIO_R"
-      # Connect to audio panel
+      - connector: AUDIO_PANEL
+        pin: 2
+        label: "AUDIO_R"
 
   - name: GTR200_PTT
     wirecount: 1
@@ -55,7 +87,9 @@ cables:
       - connector: GTR200_J1
         pin: 5
         label: "PTT"
-      # Connect to yoke or stick switch
+      - connector: PTT_SWITCH
+        pin: 1
+        label: "PTT"
 
   - name: GTR200_MIC
     wirecount: 1
@@ -66,7 +100,9 @@ cables:
       - connector: GTR200_J1
         pin: 6
         label: "MIC"
-      # Connect to microphone jack
+      - connector: MIC_JACK
+        pin: 1
+        label: "MIC"
 
   - name: GTR200_Antenna
     wirecount: 1
@@ -77,4 +113,7 @@ cables:
       - connector: GTR200_J1
         pin: 7
         label: "COM_ANT"
-      # Connect to COM antenna
+      - connector: COM_ANTENNA
+        pin: 1
+        label: "CENTER"
+      # Add SHIELD connection if needed

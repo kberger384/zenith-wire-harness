@@ -24,6 +24,22 @@ connectors:
       2: TAXI_LIGHT_OUT
       3: +12VDC_IN
 
+  PWR_DIST:
+    type: TerminalBlock
+    pins:
+      1: +12VDC
+
+  GND_BLOCK:
+    type: TerminalBlock
+    pins:
+      1: GND
+
+  LANDING_LIGHT_J1:
+    type: 2-pin
+    pins:
+      1: +12VDC
+      2: GND
+
 cables:
   - name: Taxi_Light_Power
     wirecount: 2
@@ -34,10 +50,15 @@ cables:
       - connector: TAXI_LIGHT_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: TAXI_LIGHT_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: Taxi_Light_Switch
     wirecount: 2
@@ -48,10 +69,15 @@ cables:
       - connector: TAXI_LIGHT_SWITCH
         pin: 1
         label: "+12VDC_IN"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: TAXI_LIGHT_SWITCH
         pin: 2
         label: "LOAD_OUT"
-      # Connect to panel power and taxi light +12VDC
+      - connector: TAXI_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
 
   - name: Wigwag_Module
     wirecount: 3
@@ -62,10 +88,18 @@ cables:
       - connector: WIGWAG_MODULE
         pin: 1
         label: "LANDING_LIGHT_OUT"
+      - connector: LANDING_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
       - connector: WIGWAG_MODULE
         pin: 2
         label: "TAXI_LIGHT_OUT"
+      - connector: TAXI_LIGHT_J1
+        pin: 1
+        label: "+12VDC"
       - connector: WIGWAG_MODULE
         pin: 3
         label: "+12VDC_IN"
-      # Connect to landing light, taxi light, and power for wigwag operation
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"

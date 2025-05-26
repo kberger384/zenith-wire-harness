@@ -16,6 +16,18 @@ connectors:
       6: TRIM_INT
       # ...add more as needed
 
+  AP_DISC_SWITCH:
+    type: SPST Switch
+    pins:
+      1: AP_DISC
+      2: GND
+
+  TRIM_INT_SWITCH:
+    type: SPST Switch
+    pins:
+      1: TRIM_INT
+      2: GND
+
 cables:
   - name: GMC507_Power
     wirecount: 2
@@ -26,10 +38,15 @@ cables:
       - connector: GMC507_J1
         pin: 1
         label: "+12VDC"
+      - connector: PWR_DIST
+        pin: 1
+        label: "+12VDC"
       - connector: GMC507_J1
         pin: 2
         label: "GND"
-      # Connect to power distribution and ground block
+      - connector: GND_BLOCK
+        pin: 1
+        label: "GND"
 
   - name: GMC507_CAN
     wirecount: 2
@@ -40,10 +57,15 @@ cables:
       - connector: GMC507_J1
         pin: 3
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: GMC507_J1
         pin: 4
         label: "CAN_L"
-      # Connect to CAN bus
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
 
   - name: GMC507_AP_DISC
     wirecount: 1
@@ -54,7 +76,9 @@ cables:
       - connector: GMC507_J1
         pin: 5
         label: "AP_DISC"
-      # Connect to autopilot disconnect switch
+      - connector: AP_DISC_SWITCH
+        pin: 1
+        label: "AP_DISC"
 
   - name: GMC507_Trim_Int
     wirecount: 1
@@ -65,4 +89,6 @@ cables:
       - connector: GMC507_J1
         pin: 6
         label: "TRIM_INT"
-      # Connect to trim interrupt switch
+      - connector: TRIM_INT_SWITCH
+        pin: 1
+        label: "TRIM_INT"

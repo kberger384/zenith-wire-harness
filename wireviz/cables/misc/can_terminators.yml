@@ -13,6 +13,11 @@ connectors:
     pins:
       1: CAN_H
       2: CAN_L
+  CAN_BUS:
+    type: TerminalBlock
+    pins:
+      1: CAN_H
+      2: CAN_L
 
 cables:
   - name: CAN_Bus_Terminator_A
@@ -24,10 +29,16 @@ cables:
       - connector: CAN_TERM_A
         pin: 1
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: CAN_TERM_A
         pin: 2
         label: "CAN_L"
-      # 120Ω resistor between CAN_H and CAN_L
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
+      # 120Ω resistor between CAN_H and CAN_L at CAN_TERM_A
 
   - name: CAN_Bus_Terminator_B
     wirecount: 2
@@ -38,7 +49,13 @@ cables:
       - connector: CAN_TERM_B
         pin: 1
         label: "CAN_H"
+      - connector: CAN_BUS
+        pin: 1
+        label: "CAN_H"
       - connector: CAN_TERM_B
         pin: 2
         label: "CAN_L"
-      # 120Ω resistor between CAN_H and CAN_L
+      - connector: CAN_BUS
+        pin: 2
+        label: "CAN_L"
+      # 120Ω resistor between CAN_H and CAN_L at CAN_TERM_B

@@ -1,0 +1,22 @@
+---
+connectors:
+  TEST_A:
+    type: TerminalBlock
+    pins: [SIGNAL]
+
+  TEST_B:
+    type: TerminalBlock
+    pins: [SIGNAL]
+
+cables:
+  Test_Cable:
+    gauge: 22
+    colors: [RD]
+    type: Tefzel
+
+connections:
+  -
+    - TEST_A: [SIGNAL]
+    - Test_Cable: [1]
+    - TEST_B: [SIGNAL]
+    
