@@ -7,33 +7,19 @@ description: |
 connectors:
   COM_ANTENNA:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
   GTR200_ANTENNA_PORT:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
 cables:
-  - name: COM_Antenna_Coax
-    wirecount: 1
+  COM_Antenna_Coax:
     gauge: RG400
-    color: [none]
     type: Coax
-    ends:
-      - connector: GTR200_ANTENNA_PORT
-        pin: 1
-        label: "CENTER"
-      - connector: GTR200_ANTENNA_PORT
-        pin: 2
-        label: "SHIELD"
-      - connector: COM_ANTENNA
-        pin: 1
-        label: "CENTER"
-      - connector: COM_ANTENNA
-        pin: 2
-        label: "SHIELD"
-      # Route RG400 coax from radio to antenna, minimizing bends and avoiding sharp edges#
+
+connections:
+  -
+    - GTR200_ANTENNA_PORT: [CENTER, SHIELD]
+    - COM_Antenna_Coax: [1, 2]
+    - COM_ANTENNA: [CENTER, SHIELD]

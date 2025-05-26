@@ -7,48 +7,44 @@ description: |
 connectors:
   GDU460_J1:
     type: DB25
-    pins:
-      1: +12VDC
-      2: GND
-      3: CAN_H
-      4: CAN_L
-      # ...other pins
+    pins: [PWR, GND, CAN_H, CAN_L]
+    # ...add more pins as needed
+
+  PWR_DIST:
+    type: TerminalBlock
+    pins: [PWR]
+
+  GND_BLOCK:
+    type: TerminalBlock
+    pins: [GND]
+
+  CAN_BUS:
+    type: TerminalBlock
+    pins: [CAN_H, CAN_L]
 
 cables:
-  - name: GDU460_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GDU460_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GDU460_J1
-        pin: 1
-        label: +12VDC
-      - connector: GDU460_J1
-        pin: 2
-        label: GND
-      - connector: PWR_DIST
-        pin: 5
-        label: +12VDC
-      - connector: GND_BLOCK
-        pin: 1
-        label: GND
 
-  - name: GDU460_CAN
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, blue]
+  GDU460_CAN:
+    gauge: 22
+    colors: [WH, BU]
     type: Shielded
-    ends:
-      - connector: GDU460_J1
-        pin: 3
-        label: CAN_H
-      - connector: GDU460_J1
-        pin: 4
-        label: CAN_L
-      - connector: CAN_BUS
-        pin: 1
-        label: CAN_H
-      - connector: CAN_BUS
-        pin: 2
-        label: CAN_L
+
+connections:
+  -
+    - GDU460_J1: [PWR]
+    - GDU460_Power: [1]
+    - PWR_DIST: [PWR]
+
+  -
+    - GDU460_J1: [GND]
+    - GDU460_Power: [2]
+    - GND_BLOCK: [GND]
+
+  -
+    - GDU460_J1: [CAN_H, CAN_L]
+    - GDU460_CAN: [1, 2]
+    - CAN_BUS: [CAN_H, CAN_L]

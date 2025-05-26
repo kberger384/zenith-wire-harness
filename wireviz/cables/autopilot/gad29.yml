@@ -27,78 +27,44 @@ connectors:
       6: ARINC429_RXB
 
 cables:
-  - name: GAD29_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GAD29_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GAD29_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GAD29_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GAD29_CAN
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, blue]
+  GAD29_CAN:
+    gauge: 22
+    colors: [WH, BU]
     type: Shielded
-    ends:
-      - connector: GAD29_J1
-        pin: 3
-        label: "CAN_H"
-      - connector: CAN_BUS
-        pin: 1
-        label: "CAN_H"
-      - connector: GAD29_J1
-        pin: 4
-        label: "CAN_L"
-      - connector: CAN_BUS
-        pin: 2
-        label: "CAN_L"
 
-  - name: GAD29_ARINC429_TX
-    wirecount: 2
-    gauge: 22AWG
-    color: [blue, white]
+  GAD29_ARINC429_TX:
+    gauge: 22
+    colors: [BU, WH]
     type: Shielded
-    ends:
-      - connector: GAD29_J1
-        pin: 5
-        label: "ARINC429_TXA"
-      - connector: GNX375_P1001
-        pin: 5
-        label: "ARINC429_RXA"
-      - connector: GAD29_J1
-        pin: 6
-        label: "ARINC429_TXB"
-      - connector: GNX375_P1001
-        pin: 6
-        label: "ARINC429_RXB"
 
-  - name: GAD29_ARINC429_RX
-    wirecount: 2
-    gauge: 22AWG
-    color: [green, yellow]
+  GAD29_ARINC429_RX:
+    gauge: 22
+    colors: [GN, YE]
     type: Shielded
-    ends:
-      - connector: GAD29_J1
-        pin: 7
-        label: "ARINC429_RXA"
-      - connector: GNX375_P1001
-        pin: 3
-        label: "ARINC429_TXA"
-      - connector: GAD29_J1
-        pin: 8
-        label: "ARINC429_RXB"
-      - connector: GNX375_P1001
-        pin: 4
-        label: "ARINC429_TXB"
+
+connections:
+  -
+    - GAD29_J1: [+12VDC, GND]
+    - GAD29_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GAD29_J1: [CAN_H, CAN_L]
+    - GAD29_CAN: [1, 2]
+    - CAN_BUS: [1, 2]
+
+  -
+    - GAD29_J1: [ARINC429_TXA, ARINC429_TXB]
+    - GAD29_ARINC429_TX: [1, 2]
+    - GNX375_P1001: [ARINC429_RXA, ARINC429_RXB]
+
+  -
+    - GAD29_J1: [ARINC429_RXA, ARINC429_RXB]
+    - GAD29_ARINC429_RX: [1, 2]
+    - GNX375_P1001: [ARINC429_TXA, ARINC429_TXB]

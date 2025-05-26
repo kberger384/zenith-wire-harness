@@ -21,56 +21,34 @@ connectors:
       1: +12VDC
 
 cables:
-  - name: G5EFIS_Power
-    wirecount: 2
-    gauge: 22AWG
-    color: [red, black]
+  G5EFIS_Power:
+    gauge: 22
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: G5_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: G5_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
-      # Connect to power distribution and ground block
 
-  - name: G5EFIS_CAN
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, blue]
+  G5EFIS_CAN:
+    gauge: 22
+    colors: [WH, BU]
     type: Shielded
-    ends:
-      - connector: G5_J1
-        pin: 3
-        label: "CAN_H"
-      - connector: CAN_BUS
-        pin: 1
-        label: "CAN_H"
-      - connector: G5_J1
-        pin: 4
-        label: "CAN_L"
-      - connector: CAN_BUS
-        pin: 2
-        label: "CAN_L"
-      # Connect to CAN bus
 
-  - name: G5EFIS_Backup_Battery
-    wirecount: 1
-    gauge: 22AWG
-    color: [red]
+  G5EFIS_Backup_Battery:
+    gauge: 22
+    colors: [RD]
     type: Tefzel
-    ends:
-      - connector: G5_J1
-        pin: 5
-        label: "BACKUP_BATT"
-      - connector: BACKUP_BATT
-        pin: 1
-        label: "+12VDC"
-      # Connect to G5 backup battery
+
+connections:
+  -
+    - G5_J1: [+12VDC, GND]
+    - G5EFIS_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - G5_J1: [CAN_H, CAN_L]
+    - G5EFIS_CAN: [1, 2]
+    - CAN_BUS: [1, 2]
+
+  -
+    - G5_J1: [BACKUP_BATT]
+    - G5EFIS_Backup_Battery: [1]
+    - BACKUP_BATT: [+12VDC]

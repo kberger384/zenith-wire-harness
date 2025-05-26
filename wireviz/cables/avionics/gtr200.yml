@@ -1,6 +1,6 @@
 description: |
   Garmin GTR 200: VHF COM Radio.
-  This file documents the wiring for power, ground, audio, PTT, and antenna connections.
+  This file documents the wiring for power, ground, audio, PTT, MIC, and antenna connections.
   Refer to the Garmin GTR 200 installation manual for full pinout and installation details:
   https://support.garmin.com/en-US/?partNumber=010-00985-01&tab=manuals
 
@@ -35,85 +35,61 @@ connectors:
 
   COM_ANTENNA:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
 cables:
-  - name: GTR200_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GTR200_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GTR200_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GTR200_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GTR200_Audio
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, white]
+  GTR200_Audio:
+    gauge: 22
+    colors: [WH, WH]
     type: Shielded
-    ends:
-      - connector: GTR200_J1
-        pin: 3
-        label: "AUDIO_L"
-      - connector: AUDIO_PANEL
-        pin: 1
-        label: "AUDIO_L"
-      - connector: GTR200_J1
-        pin: 4
-        label: "AUDIO_R"
-      - connector: AUDIO_PANEL
-        pin: 2
-        label: "AUDIO_R"
 
-  - name: GTR200_PTT
-    wirecount: 1
-    gauge: 22AWG
-    color: [yellow]
+  GTR200_PTT:
+    gauge: 22
+    colors: [YE]
     type: Tefzel
-    ends:
-      - connector: GTR200_J1
-        pin: 5
-        label: "PTT"
-      - connector: PTT_SWITCH
-        pin: 1
-        label: "PTT"
 
-  - name: GTR200_MIC
-    wirecount: 1
-    gauge: 22AWG
-    color: [green]
+  GTR200_MIC:
+    gauge: 22
+    colors: [GN]
     type: Tefzel
-    ends:
-      - connector: GTR200_J1
-        pin: 6
-        label: "MIC"
-      - connector: MIC_JACK
-        pin: 1
-        label: "MIC"
 
-  - name: GTR200_Antenna
-    wirecount: 1
+  GTR200_Antenna:
     gauge: RG400
-    color: [none]
+    colors: [none, none]
     type: Coax
-    ends:
-      - connector: GTR200_J1
-        pin: 7
-        label: "COM_ANT"
-      - connector: COM_ANTENNA
-        pin: 1
-        label: "CENTER"
-      # Add SHIELD connection if needed
+
+connections:
+  -
+    - GTR200_J1: [+12VDC, GND]
+    - GTR200_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GTR200_J1: [AUDIO_L, AUDIO_R]
+    - GTR200_Audio: [1, 2]
+    - AUDIO_PANEL: [AUDIO_L, AUDIO_R]
+
+  -
+    - GTR200_J1: [PTT]
+    - GTR200_PTT: [1]
+    - PTT_SWITCH: [PTT]
+
+  -
+    - GTR200_J1: [MIC]
+    - GTR200_MIC: [1]
+    - MIC_JACK: [MIC]
+
+  -
+    - GTR200_J1: [COM_ANT]
+    - GTR200_Antenna: [1]
+    - COM_ANTENNA: [CENTER]
+
+  -
+    - GTR200_Antenna: [2]
+    - COM_ANTENNA: [SHIELD]

@@ -31,78 +31,44 @@ connectors:
       2: FLAP_RETRACT
 
 cables:
-  - name: GAD27_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GAD27_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GAD27_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GAD27_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GAD27_CAN
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, blue]
+  GAD27_CAN:
+    gauge: 22
+    colors: [WH, BU]
     type: Shielded
-    ends:
-      - connector: GAD27_J1
-        pin: 3
-        label: "CAN_H"
-      - connector: CAN_BUS
-        pin: 1
-        label: "CAN_H"
-      - connector: GAD27_J1
-        pin: 4
-        label: "CAN_L"
-      - connector: CAN_BUS
-        pin: 2
-        label: "CAN_L"
 
-  - name: GAD27_Trim
-    wirecount: 2
-    gauge: 22AWG
-    color: [green, yellow]
+  GAD27_Trim:
+    gauge: 22
+    colors: [GN, YE]
     type: Tefzel
-    ends:
-      - connector: GAD27_J1
-        pin: 5
-        label: "TRIM_UP"
-      - connector: TRIM_SWITCH
-        pin: 1
-        label: "TRIM_UP"
-      - connector: GAD27_J1
-        pin: 6
-        label: "TRIM_DOWN"
-      - connector: TRIM_SWITCH
-        pin: 2
-        label: "TRIM_DOWN"
 
-  - name: GAD27_Flap
-    wirecount: 2
-    gauge: 22AWG
-    color: [blue, white]
+  GAD27_Flap:
+    gauge: 22
+    colors: [BU, WH]
     type: Tefzel
-    ends:
-      - connector: GAD27_J1
-        pin: 7
-        label: "FLAP_EXTEND"
-      - connector: FLAP_SWITCH
-        pin: 1
-        label: "FLAP_EXTEND"
-      - connector: GAD27_J1
-        pin: 8
-        label: "FLAP_RETRACT"
-      - connector: FLAP_SWITCH
-        pin: 2
-        label: "FLAP_RETRACT"
+
+connections:
+  -
+    - GAD27_J1: [+12VDC, GND]
+    - GAD27_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GAD27_J1: [CAN_H, CAN_L]
+    - GAD27_CAN: [1, 2]
+    - CAN_BUS: [1, 2]
+
+  -
+    - GAD27_J1: [TRIM_UP, TRIM_DOWN]
+    - GAD27_Trim: [1, 2]
+    - TRIM_SWITCH: [TRIM_UP, TRIM_DOWN]
+
+  -
+    - GAD27_J1: [FLAP_EXTEND, FLAP_RETRACT]
+    - GAD27_Flap: [1, 2]
+    - FLAP_SWITCH: [FLAP_EXTEND, FLAP_RETRACT]

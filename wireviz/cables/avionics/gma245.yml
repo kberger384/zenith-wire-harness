@@ -18,86 +18,77 @@ connectors:
       8: MIC
       # ...add more as needed
 
+  AUDIO_SRC:
+    type: TerminalBlock
+    pins:
+      1: AUDIO_L
+      2: AUDIO_R
+
+  HEADSET_JACK:
+    type: TerminalBlock
+    pins:
+      1: AUDIO_L
+      2: AUDIO_R
+
+  PTT_SWITCH:
+    type: TerminalBlock
+    pins:
+      1: PTT
+
+  MIC_JACK:
+    type: TerminalBlock
+    pins:
+      1: MIC
+
 cables:
-  - name: GMA245_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GMA245_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GMA245_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GMA245_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GMA245_Audio_In
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, white]
+  GMA245_Audio_In:
+    gauge: 22
+    colors: [WH, WH]
     type: Shielded
-    ends:
-      - connector: GMA245_J1
-        pin: 3
-        label: "AUDIO_IN_L"
-      - connector: AUDIO_SRC
-        pin: 1
-        label: "AUDIO_L"
-      - connector: GMA245_J1
-        pin: 4
-        label: "AUDIO_IN_R"
-      - connector: AUDIO_SRC
-        pin: 2
-        label: "AUDIO_R"
 
-  - name: GMA245_Audio_Out
-    wirecount: 2
-    gauge: 22AWG
-    color: [blue, blue]
+  GMA245_Audio_Out:
+    gauge: 22
+    colors: [BU, BU]
     type: Shielded
-    ends:
-      - connector: GMA245_J1
-        pin: 5
-        label: "AUDIO_OUT_L"
-      - connector: HEADSET_JACK
-        pin: 1
-        label: "AUDIO_L"
-      - connector: GMA245_J1
-        pin: 6
-        label: "AUDIO_OUT_R"
-      - connector: HEADSET_JACK
-        pin: 2
-        label: "AUDIO_R"
 
-  - name: GMA245_PTT
-    wirecount: 1
-    gauge: 22AWG
-    color: [yellow]
+  GMA245_PTT:
+    gauge: 22
+    colors: [YE]
     type: Tefzel
-    ends:
-      - connector: GMA245_J1
-        pin: 7
-        label: "PTT"
-      - connector: PTT_SWITCH
-        pin: 1
-        label: "PTT"
 
-  - name: GMA245_MIC
-    wirecount: 1
-    gauge: 22AWG
-    color: [green]
+  GMA245_MIC:
+    gauge: 22
+    colors: [GN]
     type: Tefzel
-    ends:
-      - connector: GMA245_J1
-        pin: 8
-        label: "MIC"
-      - connector: MIC_JACK
-        pin: 1
-        label: "MIC"
+
+connections:
+  -
+    - GMA245_J1: [+12VDC, GND]
+    - GMA245_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GMA245_J1: [AUDIO_IN_L, AUDIO_IN_R]
+    - GMA245_Audio_In: [1, 2]
+    - AUDIO_SRC: [AUDIO_L, AUDIO_R]
+
+  -
+    - GMA245_J1: [AUDIO_OUT_L, AUDIO_OUT_R]
+    - GMA245_Audio_Out: [1, 2]
+    - HEADSET_JACK: [AUDIO_L, AUDIO_R]
+
+  -
+    - GMA245_J1: [PTT]
+    - GMA245_PTT: [1]
+    - PTT_SWITCH: [PTT]
+
+  -
+    - GMA245_J1: [MIC]
+    - GMA245_MIC: [1]
+    - MIC_JACK: [MIC]

@@ -36,112 +36,73 @@ connectors:
 
   XPDR_ANTENNA:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
   GA35_ANTENNA:
     type: TNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
 cables:
-  - name: GNX375_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GNX375_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GNX375_P1001
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GNX375_P1001
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GNX375_ARINC429
-    wirecount: 4
-    gauge: 22AWG
-    color: [blue, white, blue, white]
+  GNX375_ARINC429_TX:
+    gauge: 22
+    colors: [BU, WH]
     type: Shielded
-    ends:
-      - connector: GNX375_P1001
-        pin: 3
-        label: "ARINC429_TXA"
-      - connector: GAD29_J1
-        pin: 1
-        label: "ARINC429_TXA"
-      - connector: GNX375_P1001
-        pin: 4
-        label: "ARINC429_TXB"
-      - connector: GAD29_J1
-        pin: 2
-        label: "ARINC429_TXB"
-      - connector: GNX375_P1001
-        pin: 5
-        label: "ARINC429_RXA"
-      - connector: GAD29_J1
-        pin: 3
-        label: "ARINC429_RXA"
-      - connector: GNX375_P1001
-        pin: 6
-        label: "ARINC429_RXB"
-      - connector: GAD29_J1
-        pin: 4
-        label: "ARINC429_RXB"
 
-  - name: GNX375_RS232
-    wirecount: 2
-    gauge: 22AWG
-    color: [yellow, green]
+  GNX375_ARINC429_RX:
+    gauge: 22
+    colors: [GN, YE]
+    type: Shielded
+
+  GNX375_RS232:
+    gauge: 22
+    colors: [YE, GN]
     type: Tefzel
-    ends:
-      - connector: GNX375_P1001
-        pin: 7
-        label: "RS232_TX"
-      - connector: G3X_RS232
-        pin: 2
-        label: "RS232_RX"
-      - connector: GNX375_P1001
-        pin: 8
-        label: "RS232_RX"
-      - connector: G3X_RS232
-        pin: 1
-        label: "RS232_TX"
 
-  - name: GNX375_Transponder_Antenna
-    wirecount: 1
+  GNX375_Transponder_Antenna:
     gauge: RG400
-    color: [none]
+    colors: [none, none]
     type: Coax
-    ends:
-      - connector: GNX375_P1001
-        pin: 9
-        label: "XPDR_ANT"
-      - connector: XPDR_ANTENNA
-        pin: 1
-        label: "CENTER"
-      # Add SHIELD connection if needed
 
-  - name: GNX375_GPS_Antenna
-    wirecount: 1
+  GNX375_GPS_Antenna:
     gauge: RG400
-    color: [none]
+    colors: [none, none]
     type: Coax
-    ends:
-      - connector: GNX375_P1001
-        pin: 10
-        label: "GPS_ANT"
-      - connector: GA35_ANTENNA
-        pin: 1
-        label: "CENTER"
-      # Add SHIELD connection if needed
 
-# Add additional cables for audio, discrete inputs/outputs, and other functions as needed.
+connections:
+  -
+    - GNX375_P1001: [+12VDC, GND]
+    - GNX375_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GNX375_P1001: [ARINC429_TXA, ARINC429_TXB]
+    - GNX375_ARINC429_TX: [1, 2]
+    - GAD29_J1: [ARINC429_RXA, ARINC429_RXB]
+
+  -
+    - GNX375_P1001: [ARINC429_RXA, ARINC429_RXB]
+    - GNX375_ARINC429_RX: [1, 2]
+    - GAD29_J1: [ARINC429_TXA, ARINC429_TXB]
+
+  -
+    - GNX375_P1001: [RS232_TX, RS232_RX]
+    - GNX375_RS232: [1, 2]
+    - G3X_RS232: [RS232_RX, RS232_TX]
+
+  -
+    - GNX375_P1001: [XPDR_ANT]
+    - GNX375_Transponder_Antenna: [1]
+    - XPDR_ANTENNA: [CENTER]
+
+  -
+    - GNX375_P1001: [GPS_ANT]
+    - GNX375_GPS_Antenna: [1]
+    - GA35_ANTENNA: [CENTER]
+
+# Add additional connections for SHIELD if needed, and for audio, discrete I/O, etc.

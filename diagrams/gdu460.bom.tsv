@@ -1,0 +1,6 @@
+Id	Description	Qty	Unit	Designators
+1	Cable, Shielded, 2 x 22 mm²	0	m	GDU460_CAN
+2	Cable, Tefzel, 2 x 20 mm²	0	m	GDU460_Power
+3	Connector, DB25, 4 pins	1		GDU460_J1
+4	Connector, TerminalBlock, 1 pins	2		GND_BLOCK, PWR_DIST
+5	Connector, TerminalBlock, 2 pins	1		CAN_BUS

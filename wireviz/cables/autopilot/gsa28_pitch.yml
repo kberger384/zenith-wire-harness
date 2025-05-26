@@ -16,7 +16,6 @@ connectors:
       6: SERVO_FEEDBACK
       # ...add more as needed
 
-
   GMC507_J1:
     type: DB15
     pins:
@@ -24,59 +23,34 @@ connectors:
       6: SERVO_FEEDBACK
 
 cables:
-  - name: GSA28_Pitch_Power
-    wirecount: 2
-    gauge: 20AWG
-    color: [red, black]
+  GSA28_Pitch_Power:
+    gauge: 20
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GSA28_PITCH_J1
-        pin: 1
-        label: "+12VDC"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+12VDC"
-      - connector: GSA28_PITCH_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
 
-  - name: GSA28_Pitch_CAN
-    wirecount: 2
-    gauge: 22AWG
-    color: [white, blue]
+  GSA28_Pitch_CAN:
+    gauge: 22
+    colors: [WH, BU]
     type: Shielded
-    ends:
-      - connector: GSA28_PITCH_J1
-        pin: 3
-        label: "CAN_H"
-      - connector: CAN_BUS
-        pin: 1
-        label: "CAN_H"
-      - connector: GSA28_PITCH_J1
-        pin: 4
-        label: "CAN_L"
-      - connector: CAN_BUS
-        pin: 2
-        label: "CAN_L"
 
-  - name: GSA28_Pitch_Control
-    wirecount: 2
-    gauge: 22AWG
-    color: [green, yellow]
+  GSA28_Pitch_Control:
+    gauge: 22
+    colors: [GN, YE]
     type: Tefzel
-    ends:
-      - connector: GSA28_PITCH_J1
-        pin: 5
-        label: "SERVO_CTRL"
-      - connector: GMC507_J1
-        pin: 5
-        label: "SERVO_CTRL"
-      - connector: GSA28_PITCH_J1
-        pin: 6
-        label: "SERVO_FEEDBACK"
-      - connector: GMC507_J1
-        pin: 6
-        label: "SERVO_FEEDBACK"
+
+connections:
+  -
+    - GSA28_PITCH_J1: [+12VDC, GND]
+    - GSA28_Pitch_Power: [1, 2]
+    - PWR_DIST: [1]
+    - GND_BLOCK: [1]
+
+  -
+    - GSA28_PITCH_J1: [CAN_H, CAN_L]
+    - GSA28_Pitch_CAN: [1, 2]
+    - CAN_BUS: [1, 2]
+
+  -
+    - GSA28_PITCH_J1: [SERVO_CTRL, SERVO_FEEDBACK]
+    - GSA28_Pitch_Control: [1, 2]
+    - GMC507_J1: [SERVO_CTRL, SERVO_FEEDBACK]

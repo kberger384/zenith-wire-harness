@@ -7,33 +7,19 @@ description: |
 connectors:
   GA35_ANTENNA:
     type: TNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
   GNX375_GPS_ANT_PORT:
     type: TNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
 cables:
-  - name: GA35_Antenna_Coax
-    wirecount: 1
+  GA35_Antenna_Coax:
     gauge: RG400
-    color: [none]
     type: Coax
-    ends:
-      - connector: GNX375_GPS_ANT_PORT
-        pin: 1
-        label: "CENTER"
-      - connector: GNX375_GPS_ANT_PORT
-        pin: 2
-        label: "SHIELD"
-      - connector: GA35_ANTENNA
-        pin: 1
-        label: "CENTER"
-      - connector: GA35_ANTENNA
-        pin: 2
-        label: "SHIELD"
-      # Route RG400 coax from GNX 375 to GA 35 antenna, minimizing bends and avoiding sharp edges
+
+connections:
+  -
+    - GNX375_GPS_ANT_PORT: [CENTER, SHIELD]
+    - GA35_Antenna_Coax: [1, 2]
+    - GA35_ANTENNA: [CENTER, SHIELD]

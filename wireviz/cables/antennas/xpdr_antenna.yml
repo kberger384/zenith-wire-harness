@@ -7,33 +7,19 @@ description: |
 connectors:
   XPDR_ANTENNA:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
   GNX375_XPDR_ANT_PORT:
     type: BNC
-    pins:
-      1: CENTER
-      2: SHIELD
+    pins: [CENTER, SHIELD]
 
 cables:
-  - name: XPDR_Antenna_Coax
-    wirecount: 1
+  XPDR_Antenna_Coax:
     gauge: RG400
-    color: [none]
     type: Coax
-    ends:
-      - connector: GNX375_XPDR_ANT_PORT
-        pin: 1
-        label: "CENTER"
-      - connector: GNX375_XPDR_ANT_PORT
-        pin: 2
-        label: "SHIELD"
-      - connector: XPDR_ANTENNA
-        pin: 1
-        label: "CENTER"
-      - connector: XPDR_ANTENNA
-        pin: 2
-        label: "SHIELD"
-      # Route RG400 coax from GNX 375 to XPDR antenna, minimizing bends and avoiding sharp edges
+
+connections:
+  -
+    - GNX375_XPDR_ANT_PORT: [CENTER, SHIELD]
+    - XPDR_Antenna_Coax: [1, 2]
+    - XPDR_ANTENNA: [CENTER, SHIELD]
