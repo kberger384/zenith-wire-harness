@@ -2,7 +2,10 @@
 # Usage: python preprocess_wireviz.py | wireviz -
 import yaml
 import sys
+import io
 from pathlib import Path
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 with open("master.yml", "r") as f:
     master = yaml.safe_load(f)
@@ -16,7 +19,7 @@ for filename in master["include"]:
     if not path.exists():
         print(f"File not found: {filename}", file=sys.stderr)
         sys.exit(1)
-    print("---")
+
     try:
         with open(filename, "r") as part:
             print(part.read())
