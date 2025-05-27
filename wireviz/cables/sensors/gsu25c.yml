@@ -1,3 +1,4 @@
+#TODO: Update to use connections instead of ends
 description: |
   Garmin GSU 25C: AHRS and Air Data Computer for G3X system.
   This file documents the wiring for power, ground, CAN bus, and air data connections.
@@ -7,29 +8,20 @@ description: |
 connectors:
   GSU25C_J1:
     type: DB15
-    pinlabels:
-      1: +12VDC
-      2: GND
-      3: CAN_H
-      4: CAN_L
-      5: PITOT
-      6: STATIC
-      # ...add more as needed
+    pinlabels: [+12VDC, GND, CAN_H, CAN_L, PITOT, STATIC]
 
   PITOT_PORT:
     type: Port
-    pinlabels:
-      1: PITOT
+    pinlabels: [PITOT]
 
   STATIC_PORT:
     type: Port
-    pinlabels:
-      1: STATIC
+    pinlabels: [STATIC]
 
 cables:
   - name: GSU25C_Power
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [red, black]
     type: Tefzel
     ends:
@@ -49,7 +41,7 @@ cables:
 
   - name: GSU25C_CAN
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [white, blue]
     type: Shielded
     ends:
@@ -69,7 +61,7 @@ cables:
 
   - name: GSU25C_Air_Data
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [gray, white]
     type: Tefzel
     ends:

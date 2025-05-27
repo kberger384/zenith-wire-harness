@@ -45,4 +45,4 @@ settings:
     power: red
     ground: black
     signal: white
-  default_wire_gauge: 22AWG
+  default_wire_gauge: 22 AWG

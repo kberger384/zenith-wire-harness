@@ -7,31 +7,19 @@ description: |
 connectors:
   GTR200_J1:
     type: DB25
-    pinlabels:
-      1: +12VDC
-      2: GND
-      3: AUDIO_L
-      4: AUDIO_R
-      5: PTT
-      6: MIC
-      7: COM_ANT
-      # ...add more as needed
+    pinlabels: [+12VDC, GND, AUDIO_L, AUDIO_R, PTT, MIC, COM_ANT]
 
   AUDIO_PANEL:
     type: DB25
-    pinlabels:
-      1: AUDIO_L
-      2: AUDIO_R
+    pinlabels: [AUDIO_L, AUDIO_R]
 
   PTT_SWITCH:
     type: SPST Switch
-    pinlabels:
-      1: PTT
+    pinlabels: [PTT]
 
   MIC_JACK:
     type: Jack
-    pinlabels:
-      1: MIC
+    pinlabels: [MIC]
 
   COM_ANTENNA:
     type: BNC

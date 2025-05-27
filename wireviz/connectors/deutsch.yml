@@ -6,20 +6,9 @@ description: |
 connectors:
   DEUTSCH_4PIN:
     type: Deutsch DT 4-pin
-    pinlabels:
-      1: PIN_1
-      2: PIN_2
-      3: PIN_3
-      4: PIN_4
+    pinlabels: [PIN_1, PIN_2, PIN_3, PIN_4]
 
   DEUTSCH_6PIN:
     type: Deutsch DT 6-pin
-    pinlabels:
-      1: PIN_1
-      2: PIN_2
-      3: PIN_3
-      4: PIN_4
-      5: PIN_5
-      6: PIN_6
-
-  # Add more Deutsch connector variants as needed
+    pinlabels: [PIN_1, PIN_2, PIN_3, PIN_4, PIN_5, PIN_6]
+  

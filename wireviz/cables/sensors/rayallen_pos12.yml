@@ -1,3 +1,5 @@
+#TODO: Update to use connections instead of ends
+#TODO: Is this even the right device? :)
 description: |
   Ray Allen POS-12: Trim position sensor.
   This file documents the wiring for power, ground, and position signal connections.
@@ -7,25 +9,20 @@ description: |
 connectors:
   POS12_J1:
     type: 3-pin
-    pinlabels:
-      1: +5VDC
-      2: GND
-      3: POSITION_SIGNAL
+    pinlabels: [+5VDC, GND, POSITION_SIGNAL]
 
   EFIS_INPUT:
     type: TerminalBlock
-    pinlabels:
-      1: POSITION_SIGNAL
+    pinlabels: [POSITION_SIGNAL]
 
   PWR_DIST_5V:
     type: TerminalBlock
-    pinlabels:
-      1: +5VDC
+    pinlabels: [+5VDC]
 
 cables:
   - name: POS12_Power
     wirecount: 2
-    gauge: 24AWG
+    gauge: 24 AWG
     color: [red, black]
     type: Tefzel
     ends:
@@ -45,7 +42,7 @@ cables:
 
   - name: POS12_Signal
     wirecount: 1
-    gauge: 24AWG
+    gauge: 24 AWG
     color: [white]
     type: Tefzel
     ends:

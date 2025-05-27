@@ -1,3 +1,5 @@
+
+TODO: Update for connections instead of ends
 description: |
   AeroLEDs Taxi Light: High-intensity LED taxi light for ground maneuvering, with optional wigwag (alternating flash) functionality.
   This file documents the wiring for power, ground, control (switch or relay), and wigwag module integration.
@@ -7,43 +9,32 @@ description: |
 connectors:
   TAXI_LIGHT_J1:
     type: 2-pin
-    pinlabels:
-      1: +12VDC
-      2: GND
+    pinlabels: [+12VDC, GND]
 
   TAXI_LIGHT_SWITCH:
     type: SPST Switch
-    pinlabels:
-      1: +12VDC_IN
-      2: LOAD_OUT
+    pinlabels: [+12VDC_IN, LOAD_OUT]
 
   WIGWAG_MODULE:
     type: 3-pin
-    pinlabels:
-      1: LANDING_LIGHT_OUT
-      2: TAXI_LIGHT_OUT
-      3: +12VDC_IN
+    pinlabels: [LANDING_LIGHT_OUT, TAXI_LIGHT_OUT, +12VDC_IN]
 
   PWR_DIST:
     type: TerminalBlock
-    pinlabels:
-      1: +12VDC
+    pinlabels: [+12VDC]
 
   GND_BLOCK:
     type: TerminalBlock
-    pinlabels:
-      1: GND
+    pinlabels: [GND]
 
   LANDING_LIGHT_J1:
     type: 2-pin
-    pinlabels:
-      1: +12VDC
-      2: GND
+    pinlabels: [+12VDC, GND]
 
 cables:
   - name: Taxi_Light_Power
     wirecount: 2
-    gauge: 16AWG
+    gauge: 16 AWG
     color: [red, black]
     type: Tefzel
     ends:
@@ -62,7 +53,7 @@ cables:
 
   - name: Taxi_Light_Switch
     wirecount: 2
-    gauge: 18AWG
+    gauge: 18 AWG
     color: [red, red]
     type: Tefzel
     ends:
@@ -81,7 +72,7 @@ cables:
 
   - name: Wigwag_Module
     wirecount: 3
-    gauge: 18AWG
+    gauge: 18 AWG
     color: [blue, yellow, red]
     type: Tefzel
     ends:

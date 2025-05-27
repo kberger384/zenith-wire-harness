@@ -1,3 +1,4 @@
+#TODO: Update to use connections instead of ends
 description: |
   Ray Allen T2-7A: Elevator electric trim servo.
   This file documents the wiring for power, ground, and trim control connections.
@@ -7,28 +8,20 @@ description: |
 connectors:
   T2_7A_J1:
     type: 5-pin
-    pinlabels:
-      1: +12VDC
-      2: GND
-      3: TRIM_UP
-      4: TRIM_DOWN
-      5: POSITION_FEEDBACK
+    pinlabels: [+12VDC, GND, TRIM_UP, TRIM_DOWN, POSITION_FEEDBACK]
 
   TRIM_SWITCH:
     type: DPDT Switch
-    pinlabels:
-      1: TRIM_UP
-      2: TRIM_DOWN
+    pinlabels: [TRIM_UP, TRIM_DOWN]
 
   EFIS_INPUT:
     type: TerminalBlock
-    pinlabels:
-      1: POSITION_FEEDBACK
+    pinlabels: [POSITION_FEEDBACK]
 
 cables:
   - name: T2_7A_Power
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [red, black]
     type: Tefzel
     ends:
@@ -48,7 +41,7 @@ cables:
 
   - name: T2_7A_Control
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [green, yellow]
     type: Tefzel
     ends:
@@ -68,7 +61,7 @@ cables:
 
   - name: T2_7A_Feedback
     wirecount: 1
-    gauge: 24AWG
+    gauge: 24 AWG
     color: [white]
     type: Tefzel
     ends:

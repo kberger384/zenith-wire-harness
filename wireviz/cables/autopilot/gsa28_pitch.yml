@@ -7,20 +7,12 @@ description: |
 connectors:
   GSA28_PITCH_J1:
     type: DB15
-    pinlabels:
-      1: +12VDC
-      2: GND
-      3: CAN_H
-      4: CAN_L
-      5: SERVO_CTRL
-      6: SERVO_FEEDBACK
-      # ...add more as needed
+    pinlabels: [+12VDC, GND, CAN_H, CAN_L, SERVO_CTRL, SERVO_FEEDBACK]
 
   GMC507_J1:
     type: DB15
-    pinlabels:
-      5: SERVO_CTRL
-      6: SERVO_FEEDBACK
+    pins: [5, 6]
+    pinlabels: [SERVO_CTRL, SERVO_FEEDBACK]
 
 cables:
   GSA28_Pitch_Power:

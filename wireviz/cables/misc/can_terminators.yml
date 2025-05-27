@@ -1,3 +1,4 @@
+#TODO Update for connections instead of ends
 description: |
   CAN Bus Terminators: 120Ω resistors installed at each end of the CAN bus network.
   This file documents the wiring for the CAN bus termination required by Garmin G3X and related avionics.
@@ -5,24 +6,18 @@ description: |
 connectors:
   CAN_TERM_A:
     type: TerminalBlock
-    pinlabels:
-      1: CAN_H
-      2: CAN_L
+    pinlabels: [CAN_H, CAN_L]
   CAN_TERM_B:
     type: TerminalBlock
-    pinlabels:
-      1: CAN_H
-      2: CAN_L
+    pinlabels: [CAN_H, CAN_L]
   CAN_BUS:
     type: TerminalBlock
-    pinlabels:
-      1: CAN_H
-      2: CAN_L
+    pinlabels: [CAN_H, CAN_L]
 
 cables:
   - name: CAN_Bus_Terminator_A
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [white, blue]
     type: Tefzel
     ends:
@@ -42,7 +37,7 @@ cables:
 
   - name: CAN_Bus_Terminator_B
     wirecount: 2
-    gauge: 22AWG
+    gauge: 22 AWG
     color: [white, blue]
     type: Tefzel
     ends:

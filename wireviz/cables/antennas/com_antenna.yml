@@ -7,11 +7,11 @@ description: |
 connectors:
   COM_ANTENNA:
     type: BNC
-    pinlabels: [CENTER, SHIELD]
+    pins: [CENTER, SHIELD]
 
   GTR200_ANTENNA_PORT:
     type: BNC
-    pinlabels: [CENTER, SHIELD]
+    pins: [CENTER, SHIELD]
 
 cables:
   COM_Antenna_Coax:

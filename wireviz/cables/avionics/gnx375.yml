@@ -7,32 +7,15 @@ description: |
 connectors:
   GNX375_P1001:
     type: DB25
-    pinlabels:
-      1: +12VDC
-      2: GND
-      3: ARINC429_TXA
-      4: ARINC429_TXB
-      5: ARINC429_RXA
-      6: ARINC429_RXB
-      7: RS232_TX
-      8: RS232_RX
-      9: XPDR_ANT
-      10: GPS_ANT
-      # ...add more as needed per manual
+    pinlabels: [12VDC, GND, ARINC429_TXA, ARINC429_TXB, ARINC429_RXA, ARINC429_RXB, RS232_TX, RS232_RX, XPDR_ANT, GPS_ANT]
 
   GAD29_J1:
     type: DB25
-    pinlabels:
-      1: ARINC429_TXA
-      2: ARINC429_TXB
-      3: ARINC429_RXA
-      4: ARINC429_RXB
+    pinlabels: [ARINC429_TXA, ARINC429_TXB, ARINC429_RXA, ARINC429_RXB]
 
   G3X_RS232:
     type: DB9
-    pinlabels:
-      1: RS232_TX
-      2: RS232_RX
+    pinlabels: [RS232_RX, RS232_TX]
 
   XPDR_ANTENNA:
     type: BNC
