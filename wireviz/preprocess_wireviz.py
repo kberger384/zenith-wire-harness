@@ -1,0 +1,24 @@
+# preprocess_wireviz.py
+import yaml
+import sys
+from pathlib import Path
+
+with open("master.yml", "r") as f:
+    master = yaml.safe_load(f)
+
+if "include" not in master:
+    print("No 'include' section found in master.yml", file=sys.stderr)
+    sys.exit(1)
+
+for filename in master["include"]:
+    path = Path(filename)
+    if not path.exists():
+        print(f"File not found: {filename}", file=sys.stderr)
+        sys.exit(1)
+    print("---")
+    try:
+        with open(filename, "r") as part:
+            print(part.read())
+    except Exception as e:
+        print(f"Error reading {filename}: {e}", file=sys.stderr)
+        sys.exit(1)
