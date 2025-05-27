@@ -11,7 +11,7 @@ include:
   - cables/avionics/gtr200.yml
   - cables/avionics/gma245.yml
   - cables/avionics/gmc507.yml
-  - cables/avionics/g5efis.yml
+  - cables/avionics/g5.yml
 
   # Autopilot
   - cables/autopilot/gad27.yml
