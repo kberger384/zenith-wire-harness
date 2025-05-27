@@ -1,0 +1,8 @@
+Id	Description	Qty	Unit	Designators
+1	Cable, Shielded, 2 x 22 mm²	0	m	GMC507_CAN
+2	Cable, Tefzel, 1 x 22 mm²	0	m	GMC507_AP_DISC
+3	Cable, Tefzel, 2 x 20 mm²	0	m	GMC507_Power
+4	Connector, DB15, 6 pins	1		GMC507_J1
+5	Connector, SPST Switch, 2 pins	1		AP_DISC_SWITCH
+6	Connector, TerminalBlock, 1 pins	2		GND_BLOCK, PWR_DIST
+7	Connector, TerminalBlock, 2 pins	1		CAN_BUS
