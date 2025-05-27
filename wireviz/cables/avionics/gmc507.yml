@@ -32,22 +32,22 @@ connectors:
 
 cables:
   GMC507_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GMC507_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   GMC507_AP_DISC:
-    gauge: 22
+    gauge: 22 AWG
     colors: [YE]
     type: Tefzel
 
   GMC507_Trim_Int:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN]
     type: Tefzel
 

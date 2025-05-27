@@ -24,17 +24,17 @@ connectors:
 
 cables:
   GSA28_Roll_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GSA28_Roll_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   GSA28_Roll_Control:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN, YE]
     type: Tefzel
 

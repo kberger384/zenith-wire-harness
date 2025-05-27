@@ -28,22 +28,22 @@ connectors:
 
 cables:
   GAD29_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GAD29_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   GAD29_ARINC429_TX:
-    gauge: 22
+    gauge: 22 AWG
     colors: [BU, WH]
     type: Shielded
 
   GAD29_ARINC429_RX:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN, YE]
     type: Shielded
 

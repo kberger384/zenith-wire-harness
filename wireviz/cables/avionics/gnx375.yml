@@ -44,22 +44,22 @@ connectors:
 
 cables:
   GNX375_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GNX375_ARINC429_TX:
-    gauge: 22
+    gauge: 22 AWG
     colors: [BU, WH]
     type: Shielded
 
   GNX375_ARINC429_RX:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN, YE]
     type: Shielded
 
   GNX375_RS232:
-    gauge: 22
+    gauge: 22 AWG
     colors: [YE, GN]
     type: Tefzel
 
