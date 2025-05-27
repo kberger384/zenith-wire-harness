@@ -15,17 +15,17 @@ connectors:
 
 cables:
   G5EFIS_Power:
-    gauge: 22
+    gauge: 22 AWG
     colors: [RD, BK]
     type: Tefzel
 
   G5EFIS_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   G5EFIS_Backup_Battery:
-    gauge: 22
+    gauge: 22 AWG
     colors: [RD]
     type: Tefzel
 

@@ -32,22 +32,22 @@ connectors:
 
 cables:
   GAD27_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GAD27_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   GAD27_Trim:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN, YE]
     type: Tefzel
 
   GAD27_Flap:
-    gauge: 22
+    gauge: 22 AWG
     colors: [BU, WH]
     type: Tefzel
 

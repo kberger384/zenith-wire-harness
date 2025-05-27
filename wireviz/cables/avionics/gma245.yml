@@ -27,27 +27,27 @@ connectors:
 
 cables:
   GMA245_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GMA245_Audio_In:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, WH]
     type: Shielded
 
   GMA245_Audio_Out:
-    gauge: 22
+    gauge: 22 AWG
     colors: [BU, BU]
     type: Shielded
 
   GMA245_PTT:
-    gauge: 22
+    gauge: 22 AWG
     colors: [YE]
     type: Tefzel
 
   GMA245_MIC:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN]
     type: Tefzel
 

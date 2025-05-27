@@ -24,17 +24,17 @@ connectors:
 
 cables:
   GSA28_Pitch_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GSA28_Pitch_CAN:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, BU]
     type: Shielded
 
   GSA28_Pitch_Control:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN, YE]
     type: Tefzel
 

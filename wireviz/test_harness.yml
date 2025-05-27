@@ -10,7 +10,7 @@ connectors:
 
 cables:
   Test_Cable:
-    gauge: 22
+    gauge: 22 AWG
     colors: [RD]
     type: Tefzel
 

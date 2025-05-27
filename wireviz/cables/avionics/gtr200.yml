@@ -39,22 +39,22 @@ connectors:
 
 cables:
   GTR200_Power:
-    gauge: 20
+    gauge: 20 AWG
     colors: [RD, BK]
     type: Tefzel
 
   GTR200_Audio:
-    gauge: 22
+    gauge: 22 AWG
     colors: [WH, WH]
     type: Shielded
 
   GTR200_PTT:
-    gauge: 22
+    gauge: 22 AWG
     colors: [YE]
     type: Tefzel
 
   GTR200_MIC:
-    gauge: 22
+    gauge: 22 AWG
     colors: [GN]
     type: Tefzel
 
