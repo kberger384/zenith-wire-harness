@@ -1,4 +1,5 @@
 # preprocess_wireviz.py
+# Usage: python preprocess_wireviz.py | wireviz -
 import yaml
 import sys
 from pathlib import Path
