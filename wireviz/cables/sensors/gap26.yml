@@ -4,66 +4,50 @@ description: |
   Garmin GAP 26 Heated Pitot: Heated pitot tube with Angle of Attack (AOA) sensing (14V).
   This file documents the wiring for power, ground, heat control, and AOA signal connections.
   Refer to the Garmin GAP 26 installation manual for full pinout and installation details:
-  https://support.garmin.com/en-US/?partNumber=010-01094-00&tab=manuals
+  https://www.steinair.com/wp-content/uploads/2022/02/G3X-Installation-Manual-rev-AQ_Sec-5_pitot-installation.pdf
 
 connectors:
   GAP26_J1:
     type: Circular
-    pinlabels: [+14VDC_HEAT, GND, AOA_SIGNAL, HEAT_CONTROL]
+    pinlabels: [+14VDC_HEAT, GND, PTH_INDICATOR]
 
-  G3X_AOA:
-    type: DB25
-    pinlabels: [AOA_SIGNAL]
+  CB_10A:
+    type: CircuitBreaker
+    pinlabels: [IN, OUT]
 
-  PITOT_HEAT_CTRL:
-    type: Relay
-    pinlabels: [HEAT_CONTROL]
+  GND_BLOCK:
+    type: TerminalBlock
+    pinlabels: [GND]
+
+  GAD27:
+    type: dsub
+    pins: 50
+    pinlabels: [PTH_INDICATOR]
+    pins: [43]
 
 cables:
-  - name: GAP26_Heater_Power
-    wirecount: 2
-    gauge: 18 AWG
-    color: [red, black]
+  GAP26_Heater_Power:
+    gauge: 12 AWG
+    colors: [RD, BK]
     type: Tefzel
-    ends:
-      - connector: GAP26_J1
-        pin: 1
-        label: "+14VDC_HEAT"
-      - connector: PWR_DIST
-        pin: 1
-        label: "+14VDC_HEAT"
-      - connector: GAP26_J1
-        pin: 2
-        label: "GND"
-      - connector: GND_BLOCK
-        pin: 1
-        label: "GND"
-      # Connect to pitot heat power and ground
 
-  - name: GAP26_AOA
-    wirecount: 1
+  GAP26_PTH_Indicator:
     gauge: 22 AWG
-    color: [white]
-    type: Tefzel
-    ends:
-      - connector: GAP26_J1
-        pin: 3
-        label: "AOA_SIGNAL"
-      - connector: G3X_AOA
-        pin: 1
-        label: "AOA_SIGNAL"
-      # Connect to G3X AOA input
+    colors: [BU]
+    type: Unshielded
 
-  - name: GAP26_Heat_Control
-    wirecount: 1
-    gauge: 22 AWG
-    color: [blue]
-    type: Tefzel
-    ends:
-      - connector: GAP26_J1
-        pin: 4
-        label: "HEAT_CONTROL"
-      - connector: PITOT_HEAT_CTRL
-        pin: 1
-        label: "HEAT_CONTROL"
-      # Connect to pitot heat control circuit
+connections:
+  -
+    - GAP26_J1: [1]
+    - GAP26_Heater_Power: [1]
+    - CB_10A: [2]
+
+  -
+    - GAP26_J1: [2]
+    - GAP26_Heater_Power: [2]
+    - GND_BLOCK: [1]
+
+  -
+    - GAP26_J1: [3]
+    - GAP26_PTH_Indicator: [1]
+    - GAD27: [43]

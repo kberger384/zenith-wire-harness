@@ -1,0 +1,7 @@
+Id	Description	Qty	Unit	Designators
+1	Cable, Tefzel, 2 x 12 AWG	0	m	GAP26_Heater_Power
+2	Cable, Unshielded, 1 x 22 AWG	0	m	GAP26_PTH_Indicator
+3	Connector, CircuitBreaker, 2 pins	1		CB_10A
+4	Connector, Circular, 3 pins	1		GAP26_J1
+5	Connector, TerminalBlock, 1 pins	1		GND_BLOCK
+6	Connector, dsub, 1 pins	1		GAD27
