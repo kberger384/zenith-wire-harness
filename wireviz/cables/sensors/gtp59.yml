@@ -1,0 +1,27 @@
+metadata:
+  description: |
+    Garmin OAT Probe: Outside Air Temperature probe for use with G3X and G5 systems.
+    This file documents the wiring for the Garmin OAT probe (P/N 011-00882-00) to the G3X system.
+    Refer to the Garmin G3X installation manual for mounting, wiring, and pinout details.
+    https://static.garmincdn.com/pumac/190-01115-01_AJ.pdf
+
+connectors:
+  OAT_PROBE:
+    type: Probe
+    pins: [OAT_SIGNAL, OAT_GND]
+
+  G3X_J1:
+    type: DB25
+    pinlabels: [PWR, GND, CAN_H, CAN_L, OAT_SIGNAL, OAT_GND]  # Add all actual pins as needed
+
+cables:
+  OAT_Cable:
+    gauge: 22
+    colors: [WH, BK]
+    type: Tefzel
+
+connections:
+  -
+    - OAT_PROBE: [OAT_SIGNAL, OAT_GND]
+    - OAT_Cable: [1, 2]
+    - G3X_J1: [OAT_SIGNAL, OAT_GND]
